@@ -21,7 +21,10 @@ func _physics_process(delta: float) -> void:
 		dir -= 1
 	if !Input.is_action_pressed("a_button") and !Input.is_action_pressed("d_button"):
 		animated_sprite_2d.play("default")
-	
+	if Input.is_action_just_pressed("debug1"):
+		var floating = preload("res://Scenes/text_handler.tscn").instantiate()
+		get_tree().current_scene.add_child(floating)
+		floating.show_text("+10s", position - Vector2(0, 65))
 	if dir == 1:
 		$Node2D.scale.x = 1
 	elif dir == -1:

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bisxgaw4ebgya" path="res://Assets/player_sprite_sheet.png" id="2_6t5aa"]
 [ext_resource type="PackedScene" uid="uid://4q8y5f5yqwc3" path="res://Scenes/sword.tscn" id="3_fkybt"]
 [ext_resource type="Texture2D" uid="uid://baxafn840dkn6" path="res://Assets/running.webp" id="3_vgqql"]
+[ext_resource type="PackedScene" uid="uid://c3hlprc7fvtkq" path="res://Scenes/text_handler.tscn" id="5_fkybt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
 atlas = ExtResource("2_6t5aa")
@@ -279,7 +280,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"running",
-"speed": 20.0
+"speed": 15.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0omw4"]
@@ -309,4 +310,7 @@ position = Vector2(22, 6)
 shape = SubResource("CapsuleShape2D_0omw4")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=368770509]
-zoom = Vector2(1.66, 1.66)
+zoom = Vector2(5, 5)
+position_smoothing_enabled = true
+
+[node name="textHandler" parent="." unique_id=956234022 instance=ExtResource("5_fkybt")]
