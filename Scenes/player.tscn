@@ -8,6 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://c3hlprc7fvtkq" path="res://Scenes/text_handler.tscn" id="5_fkybt"]
 [ext_resource type="AudioStream" uid="uid://dxq6sfc6t8oeu" path="res://Assets/sounds/hi guys.mp3" id="7_3smsa"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0omw4"]
+radius = 16.0
+height = 92.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exf34"]
+size = Vector2(25, 57)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_yh6i2"]
 atlas = ExtResource("2_x3wgy")
 region = Rect2(0, 0, 128, 128)
@@ -59,18 +66,6 @@ region = Rect2(384, 256, 128, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_qavoy"]
 atlas = ExtResource("2_x3wgy")
 region = Rect2(0, 384, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w4w4b"]
-atlas = ExtResource("2_x3wgy")
-region = Rect2(128, 384, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h5cax"]
-atlas = ExtResource("2_x3wgy")
-region = Rect2(256, 384, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dj0x0"]
-atlas = ExtResource("2_x3wgy")
-region = Rect2(384, 384, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
 atlas = ExtResource("2_fkybt")
@@ -357,17 +352,8 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qavoy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w4w4b")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h5cax")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dj0x0")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"attack",
 "speed": 24.0
 }, {
@@ -601,3 +587,14 @@ position_smoothing_enabled = true
 stream = ExtResource("7_3smsa")
 autoplay = true
 bus = &"BGM"
+[node name="AttackArea" type="Area2D" parent="." unique_id=1221206056]
+
+[node name="AttackHitBox" type="CollisionShape2D" parent="AttackArea" unique_id=1983990035]
+position = Vector2(34.5, 3)
+shape = SubResource("RectangleShape2D_exf34")
+disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1166195807]
+sprite_frames = SubResource("SpriteFrames_afs4w")
+animation = &"attack"
+autoplay = "default"
