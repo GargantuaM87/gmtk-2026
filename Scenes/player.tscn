@@ -218,6 +218,10 @@ region = Rect2(512, 640, 128, 128)
 atlas = ExtResource("2_fkybt")
 region = Rect2(640, 640, 128, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4w4b"]
+atlas = ExtResource("3_x3wgy")
+region = Rect2(512, 256, 128, 128)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_lisdf"]
 atlas = ExtResource("3_x3wgy")
 region = Rect2(0, 136, 128, 126)
@@ -479,6 +483,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_w4w4b")
+}],
+"loop": 1,
+"name": &"in_air",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_lisdf")
 }, {
 "duration": 1.0,
@@ -603,5 +615,5 @@ disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1166195807]
 sprite_frames = SubResource("SpriteFrames_afs4w")
-animation = &"attack"
+animation = &"jumping"
 autoplay = "default"

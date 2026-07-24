@@ -8,10 +8,13 @@ const GRAVITY = 1000
 const HORIZONTAL_VELOCITY = 350
 
 var attacking = false
+var play_jump = true
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
+	if is_on_floor():
+		play_jump = true
 	
 	#Jump Action
 	if Input.is_action_just_pressed("space") and is_on_floor():
@@ -40,8 +43,10 @@ func _physics_process(delta: float) -> void:
 		else:
 			sprite2D.play("running")
 	# Jumping Animation
-	elif !is_on_floor() and !attacking:
-		sprite2D.play("jumping")	
+	elif !is_on_floor() and !attacking and play_jump:
+		sprite2D.play("jumping")
+		if not sprite2D.animation_finished.is_connected(_on_jump_finished):
+			sprite2D.animation_finished.connect(_on_jump_finished, CONNECT_ONE_SHOT)
 	if is_on_floor() and Input.is_action_just_pressed("mouse_left"):
 		sprite2D.play("attack")
 		velocity = Vector2(0, 0)
@@ -50,10 +55,13 @@ func _physics_process(delta: float) -> void:
 			attackHitbox.disabled = false
 		else:
 			attackHitbox.disabled = true
-		if not sprite2D.animation_finished.is_connected(_on_animation_finished):
-			sprite2D.animation_finished.connect(_on_animation_finished, CONNECT_ONE_SHOT)
+		if not sprite2D.animation_finished.is_connected(_on_attack_finished):
+			sprite2D.animation_finished.connect(_on_attack_finished, CONNECT_ONE_SHOT)
 	move_and_slide()
 	
-func _on_animation_finished():
+func _on_attack_finished():
 	attacking = false
+func _on_jump_finished():
+	sprite2D.play("in_air")
+	play_jump = false
 	
