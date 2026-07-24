@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dl8u83dlgho4v"]
+
+[ext_resource type="Shader" uid="uid://bnclfpwtus0nf" path="res://Assets/VFX/01.gdshader" id="1_4wa4x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fp2xp"]
+shader = ExtResource("1_4wa4x")
+shader_parameter/alpha = 1.0
+shader_parameter/inner_radius = 0.0
+shader_parameter/outer_radius = 1.0
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1801978856]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1018612319]
+material = SubResource("ShaderMaterial_fp2xp")
+custom_minimum_size = Vector2(500, 500)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
