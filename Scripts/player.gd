@@ -1,10 +1,14 @@
 extends CharacterBody2D
-@onready var sprite2D = $Node2D/AnimatedSprite2D
+@onready var sprite2D = $AnimatedSprite2D
+@onready var attackHitbox = $AttackArea/AttackHitBox
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const GRAVITY = 1000
 const HORIZONTAL_VELOCITY = 350
+
+var attacking = false
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
@@ -28,17 +32,28 @@ func _physics_process(delta: float) -> void:
 			sprite2D.flip_h = true
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		
-	if is_on_floor():
+	# Movement Animation
+	if is_on_floor() and !attacking:
 		# Necessary animations to play
 		if dir == 0:
 			sprite2D.play("default")
 		else:
 			sprite2D.play("running")
-	else:
+	# Jumping Animation
+	elif !is_on_floor() and !attacking:
 		sprite2D.play("jumping")	
-	
-	if Input.is_action_just_pressed("mouse_left"):
-		pass
+	if is_on_floor() and Input.is_action_just_pressed("mouse_left"):
+		sprite2D.play("attack")
+		velocity = Vector2(0, 0)
+		attacking = true
+		if sprite2D.frame == 8 or sprite2D.frame == 9:
+			attackHitbox.disabled = false
+		else:
+			attackHitbox.disabled = true
+		if not sprite2D.animation_finished.is_connected(_on_animation_finished):
+			sprite2D.animation_finished.connect(_on_animation_finished, CONNECT_ONE_SHOT)
 	move_and_slide()
+	
+func _on_animation_finished():
+	attacking = false
 	
