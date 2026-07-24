@@ -3,10 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://cr3l7x8g53tq4" path="res://Scenes/player.tscn" id="1_6idp7"]
 [ext_resource type="Texture2D" uid="uid://bmveup8p052r1" path="res://Assets/tile_placeholder.png" id="2_rx0dc"]
 [ext_resource type="PackedScene" uid="uid://blcfx0ykoxuoo" path="res://Scenes/enemy_1.tscn" id="3_rx0dc"]
+[ext_resource type="PackedScene" uid="uid://b5km8n312ijbo" path="res://Scenes/Levels/Levelreqs/physics_tile.tscn" id="4_afs4w"]
 
 [sub_resource type="DrawableTexture2D" id="DrawableTexture2D_pra2e"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6idp7"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3tvqv"]
 texture = ExtResource("2_rx0dc")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -18,7 +19,7 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_3tvqv"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_6idp7")
+sources/0 = SubResource("TileSetAtlasSource_3tvqv")
 
 [node name="TestRoom" type="Node2D" unique_id=579267508]
 
@@ -42,3 +43,5 @@ position = Vector2(814, 386)
 [node name="Enemy2" parent="." unique_id=903558682 instance=ExtResource("3_rx0dc")]
 visible = false
 position = Vector2(116, 407)
+
+[node name="PhysicsTile" parent="." unique_id=1740695540 instance=ExtResource("4_afs4w")]

@@ -310,7 +310,7 @@ position = Vector2(22, 6)
 shape = SubResource("CapsuleShape2D_0omw4")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=368770509]
-zoom = Vector2(5, 5)
+zoom = Vector2(3.5, 3.5)
 position_smoothing_enabled = true
 
 [node name="textHandler" parent="." unique_id=956234022 instance=ExtResource("5_fkybt")]
