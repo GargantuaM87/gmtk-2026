@@ -11,7 +11,13 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0omw4"]
 radius = 16.0
-height = 92.0
+height = 62.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f1ek2"]
+shader = ExtResource("6_8erm5")
+shader_parameter/alpha = 1.0
+shader_parameter/inner_radius = 0.0
+shader_parameter/outer_radius = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_exf34"]
 size = Vector2(25, 57)
@@ -557,29 +563,9 @@ animations = [{
 "speed": 24.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0omw4"]
-radius = 16.0
-height = 62.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_f1ek2"]
-shader = ExtResource("6_8erm5")
-shader_parameter/alpha = 1.0
-shader_parameter/inner_radius = 0.0
-shader_parameter/outer_radius = 1.0
-
 [node name="Player" type="CharacterBody2D" unique_id=201653633]
 collision_layer = 2
 script = ExtResource("1_6t5aa")
-
-[node name="Node2D" type="Node2D" parent="." unique_id=1987988485]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D" unique_id=1166195807]
-texture_filter = 3
-sprite_frames = SubResource("SpriteFrames_afs4w")
-animation = &"attack"
-autoplay = "default"
-frame = 6
-frame_progress = 0.58083606
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=108080184]
 shape = SubResource("CapsuleShape2D_0omw4")
@@ -607,7 +593,7 @@ metadata/_edit_use_anchors_ = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1296044148]
 stream = ExtResource("7_3smsa")
 autoplay = true
-bus = &"BGM"
+
 [node name="AttackArea" type="Area2D" parent="." unique_id=1221206056]
 
 [node name="AttackHitBox" type="CollisionShape2D" parent="AttackArea" unique_id=1983990035]
