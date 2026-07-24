@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c8qyr1ibghc4m"]
+
+[ext_resource type="FontFile" uid="uid://mtdu0bf066ol" path="res://Assets/PixelifySans-VariableFont_wght.ttf" id="1_hyk5c"]
+
+[node name="MasterTimer" type="Timer" unique_id=524583231]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=589033692]
+
+[node name="ClockTime" type="Label" parent="CanvasLayer" unique_id=1652016986]
+offset_left = 418.0
+offset_top = 1.0
+offset_right = 723.0
+offset_bottom = 155.0
+theme_override_fonts/font = ExtResource("1_hyk5c")
+theme_override_font_sizes/font_size = 128
+text = "10:30"
+horizontal_alignment = 1
+vertical_alignment = 1
