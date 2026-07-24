@@ -1,12 +1,13 @@
-[gd_scene format=4 uid="uid://de46kpymtcoe8"]
+[gd_scene format=3 uid="uid://de46kpymtcoe8"]
 
 [ext_resource type="PackedScene" uid="uid://cr3l7x8g53tq4" path="res://Scenes/player.tscn" id="1_6idp7"]
-[ext_resource type="Texture2D" uid="uid://bmveup8p052r1" path="res://Assets/tile_placeholder.png" id="2_rx0dc"]
+[ext_resource type="Texture2D" uid="uid://cyn0k5u64blm7" path="res://Assets/player_placeholder.png" id="3_afs4w"]
 [ext_resource type="PackedScene" uid="uid://blcfx0ykoxuoo" path="res://Scenes/enemy_1.tscn" id="3_rx0dc"]
 [ext_resource type="PackedScene" uid="uid://b5km8n312ijbo" path="res://Scenes/Levels/Levelreqs/physics_tile.tscn" id="4_afs4w"]
 
 [sub_resource type="DrawableTexture2D" id="DrawableTexture2D_pra2e"]
 
+<<<<<<< HEAD
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3tvqv"]
 texture = ExtResource("2_rx0dc")
 texture_region_size = Vector2i(32, 32)
@@ -20,10 +21,14 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_3tvqv")
+=======
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_woqh1"]
+>>>>>>> ebdb7181dec410ae21654d971237abcb071642c7
 
 [node name="TestRoom" type="Node2D" unique_id=579267508]
 
 [node name="BackGround" type="Sprite2D" parent="." unique_id=1058993569]
+visible = false
 position = Vector2(576, 325)
 scale = Vector2(19, 11.15625)
 texture = SubResource("DrawableTexture2D_pra2e")
@@ -31,10 +36,6 @@ texture = SubResource("DrawableTexture2D_pra2e")
 [node name="Player" parent="." unique_id=201653633 instance=ExtResource("1_6idp7")]
 unique_name_in_owner = true
 position = Vector2(338, 400)
-
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1668188273]
-tile_map_data = PackedByteArray("AAAKAA4AAAAAAAAAAAALAA4AAAAAAAAAAAAMAA4AAAAAAAAAAAANAA4AAAAAAAAAAAAOAA4AAAAAAAAAAAAPAA4AAAAAAAAAAAAQAA4AAAAAAAAAAAAQAA8AAAAAAAAAAAARAA8AAAAAAAAAAAASAA8AAAAAAAAAAAATAA8AAAAAAAAAAAAUAA8AAAAAAAAAAAAVAA8AAAAAAAAAAAAWAA8AAAAAAAAAAAAWAA4AAAAAAAAAAAAXAA4AAAAAAAAAAAAYAA4AAAAAAAAAAAAZAA4AAAAAAAAAAAAaAA4AAAAAAAAAAAAbAA4AAAAAAAAAAAAcAA4AAAAAAAAAAAAdAA4AAAAAAAAAAAAeAA4AAAAAAAAAAAAfAA4AAAAAAAAAAAAgAA4AAAAAAAAAAAAgAA8AAAAAAAAAAAAhAA8AAAAAAAAAAAAiAA8AAAAAAAAAAAAjAA8AAAAAAAAAAAAkAA8AAAAAAAAAAAAJAA4AAAAAAAAAAAAIAA4AAAAAAAAAAAAHAA4AAAAAAAAAAAAGAA4AAAAAAAAAAAAFAA4AAAAAAAAAAAAEAA4AAAAAAAAAAAADAA4AAAAAAAAAAAACAA4AAAAAAAAAAAACAA8AAAAAAAAAAAABAA8AAAAAAAAAAAAAAA8AAAAAAAAAAAD//w8AAAAAAAAAAAD//xAAAAAAAAAAAAA=")
-tile_set = SubResource("TileSet_3tvqv")
 
 [node name="Enemy1" parent="." unique_id=1646424994 instance=ExtResource("3_rx0dc")]
 visible = false
@@ -44,4 +45,16 @@ position = Vector2(814, 386)
 visible = false
 position = Vector2(116, 407)
 
+<<<<<<< HEAD
 [node name="PhysicsTile" parent="." unique_id=1740695540 instance=ExtResource("4_afs4w")]
+=======
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=564678751]
+position = Vector2(433, 311)
+texture = ExtResource("3_afs4w")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1582070143]
+position = Vector2(333, 437)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=481380957]
+shape = SubResource("WorldBoundaryShape2D_woqh1")
+>>>>>>> ebdb7181dec410ae21654d971237abcb071642c7
