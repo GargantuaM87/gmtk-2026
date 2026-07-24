@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://cr3l7x8g53tq4"]
 
 [ext_resource type="Script" uid="uid://cj14row67tf16" path="res://Scripts/player.gd" id="1_6t5aa"]
+[node name="Node2D" type="Node2D" parent="." unique_id=1987988485]
+
+=======
 [ext_resource type="Texture2D" uid="uid://cyn0k5u64blm7" path="res://Assets/player_placeholder.png" id="2_vgqql"]
 [ext_resource type="PackedScene" uid="uid://4q8y5f5yqwc3" path="res://Scenes/sword.tscn" id="3_fkybt"]
 
@@ -29,6 +32,20 @@ sprite_frames = SubResource("SpriteFrames_pra2e")
 shape = SubResource("CapsuleShape2D_0omw4")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=368770509]
+bus = &"BGM"
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=1221206056]
+
+[node name="AttackHitBox" type="CollisionShape2D" parent="AttackArea" unique_id=1983990035]
+position = Vector2(34.5, 3)
+shape = SubResource("RectangleShape2D_exf34")
+disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1166195807]
+sprite_frames = SubResource("SpriteFrames_afs4w")
+animation = &"attack"
+autoplay = "default"
+=======
 
 [node name="Sword" parent="." unique_id=1634416026 instance=ExtResource("3_fkybt")]
 position = Vector2(22, 6)
