@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dxq6sfc6t8oeu"
+path="res://.godot/imported/hi guys.mp3-c463bc114596acc5ca1dc882898cd0d4.mp3str"
+
+[deps]
+
+source_file="res://Assets/sounds/hi guys.mp3"
+dest_files=["res://.godot/imported/hi guys.mp3-c463bc114596acc5ca1dc882898cd0d4.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=120.0
+beat_count=0
+bar_beats=4

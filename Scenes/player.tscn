@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b14vk15iyedia" path="res://Assets/jump_sheet.png" id="3_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://b1jlbuh2alsfi" path="res://Assets/run_sheet.png" id="4_fkybt"]
 [ext_resource type="PackedScene" uid="uid://c3hlprc7fvtkq" path="res://Scenes/text_handler.tscn" id="5_fkybt"]
+[ext_resource type="AudioStream" uid="uid://dxq6sfc6t8oeu" path="res://Assets/sounds/hi guys.mp3" id="7_3smsa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yh6i2"]
 atlas = ExtResource("2_x3wgy")
@@ -595,3 +596,8 @@ zoom = Vector2(3.5, 3.5)
 position_smoothing_enabled = true
 
 [node name="textHandler" parent="." unique_id=956234022 instance=ExtResource("5_fkybt")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1296044148]
+stream = ExtResource("7_3smsa")
+autoplay = true
+bus = &"BGM"
