@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0j7gbwuc626d"
-path="res://.godot/imported/tile_placeholder.webp-ee384cc0a1598332342bd397a29c3de0.ctex"
+uid="uid://c4tw7qmg1lciu"
+path="res://.godot/imported/attack_sheet.png-74f34ca27131ad8e810fe4e909f79db4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/tile_placeholder.webp"
-dest_files=["res://.godot/imported/tile_placeholder.webp-ee384cc0a1598332342bd397a29c3de0.ctex"]
+source_file="res://attack_sheet.png"
+dest_files=["res://.godot/imported/attack_sheet.png-74f34ca27131ad8e810fe4e909f79db4.ctex"]
 
 [params]
 

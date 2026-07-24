@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0j7gbwuc626d"
-valid=false
+uid="uid://icfhvqk8yh2e"
+path="res://.godot/imported/idle_sheet.png-946c55e3120ab80d09b250443462720d.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Assets/tile_placeholder.png"
+source_file="res://Assets/idle_sheet.png"
+dest_files=["res://.godot/imported/idle_sheet.png-946c55e3120ab80d09b250443462720d.ctex"]
 
 [params]
 
