@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://b5km8n312ijbo"]
 
 [ext_resource type="Texture2D" uid="uid://6nni3vbrhmai" path="res://Assets/RoomAssets/tiles3-spritesheet.png" id="1_lvsgx"]
+[ext_resource type="Texture2D" uid="uid://cwxrbcvaekr0d" path="res://Assets/RoomAssets/corner-frame0.png" id="2_w6u5h"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cv17v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w6u5h"]
 texture = ExtResource("1_lvsgx")
@@ -152,9 +155,13 @@ texture_region_size = Vector2i(32, 32)
 12:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.976918, -15.992705, 16.008495, -15.96113, 15.945343, 16.119007, -16.008493, 15.992706)
 13:1/0 = 0
 13:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.976918, -15.992705, 16.008495, -15.96113, 15.945343, 16.119007, -16.008493, 15.992706)
+15:1/next_alternative_id = 4
 15:1/0 = 0
+15:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, -10.408604, -2.1242065, -16, -1.4869442)
+15:1/2 = 2
 13:2/0 = 0
 13:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.976918, -15.992705, 16.008495, -15.96113, 15.945343, 16.119007, -16.008493, 15.992706)
+15:2/next_alternative_id = 3
 15:2/0 = 0
 12:3/0 = 0
 13:3/0 = 0
@@ -209,14 +216,75 @@ texture_region_size = Vector2i(32, 32)
 12:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.976918, -15.992705, 16.008495, -15.96113, 15.945343, 16.119007, -16.008493, 15.992706)
 13:0/0 = 0
 13:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.976918, -15.992705, 16.008495, -15.96113, 15.945343, 16.119007, -16.008493, 15.992706)
-15:0/0 = 0
-16:0/0 = 0
 9:9/0 = 0
 0:10/0 = 0
+15:0/next_alternative_id = 4
+15:0/0 = 0
+15:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+15:0/2 = 2
+16:0/next_alternative_id = 9
+16:0/0 = 0
+16:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+16:0/2 = 2
+7:9/0 = 0
+12:15/0 = 0
+12:14/0 = 0
+13:14/0 = 0
+11:14/0 = 0
+14:14/0 = 0
+15:14/0 = 0
+15:15/0 = 0
+16:15/0 = 0
+17:15/0 = 0
+17:14/0 = 0
+16:14/0 = 0
+9:14/0 = 0
+10:14/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g342w"]
+texture = ExtResource("2_w6u5h")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+5:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_fp2xp"]
+tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_cv17v")
 sources/0 = SubResource("TileSetAtlasSource_w6u5h")
+sources/1 = SubResource("TileSetAtlasSource_g342w")
 
 [node name="PhysicsTile" type="TileMapLayer" unique_id=1740695540]
 tile_set = SubResource("TileSet_fp2xp")
