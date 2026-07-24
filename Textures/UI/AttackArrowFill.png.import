@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0j7gbwuc626d"
-valid=false
+uid="uid://dwugv7xak1suq"
+path="res://.godot/imported/AttackArrowFill.png-006a40262afeb12ad31ef534f4c01e46.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Assets/tile_placeholder.png"
+source_file="res://Textures/UI/AttackArrowFill.png"
+dest_files=["res://.godot/imported/AttackArrowFill.png-006a40262afeb12ad31ef534f4c01e46.ctex"]
 
 [params]
 

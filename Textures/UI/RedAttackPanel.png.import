@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0j7gbwuc626d"
-valid=false
+uid="uid://h05i40m4kx47"
+path="res://.godot/imported/RedAttackPanel.png-9ad6bdd13614482746c5dd2ba3212de7.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Assets/tile_placeholder.png"
+source_file="res://Textures/UI/RedAttackPanel.png"
+dest_files=["res://.godot/imported/RedAttackPanel.png-9ad6bdd13614482746c5dd2ba3212de7.ctex"]
 
 [params]
 

@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://mr3qyvgisp83"]
+
+[ext_resource type="Texture2D" uid="uid://bubpyqvkqwklk" path="res://Textures/Dirt.png" id="1_1soe8"]
+
+[resource]
+albedo_texture = ExtResource("1_1soe8")
+uv1_scale = Vector3(3, 2, 1)

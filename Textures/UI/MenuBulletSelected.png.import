@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0j7gbwuc626d"
-valid=false
+uid="uid://ctuk113uqekil"
+path="res://.godot/imported/MenuBulletSelected.png-2793823a6cdffa830be00d58859cc109.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Assets/tile_placeholder.png"
+source_file="res://Textures/UI/MenuBulletSelected.png"
+dest_files=["res://.godot/imported/MenuBulletSelected.png-2793823a6cdffa830be00d58859cc109.ctex"]
 
 [params]
 

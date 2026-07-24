@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0j7gbwuc626d"
-valid=false
+uid="uid://cfomrpeegnyvt"
+path="res://.godot/imported/AbilityMenu.png-418c417e8dc00b27a2f8ecbd3d2fa214.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Assets/tile_placeholder.png"
+source_file="res://Textures/UI/AbilityMenu.png"
+dest_files=["res://.godot/imported/AbilityMenu.png-418c417e8dc00b27a2f8ecbd3d2fa214.ctex"]
 
 [params]
 

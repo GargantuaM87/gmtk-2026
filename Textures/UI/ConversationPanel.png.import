@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0j7gbwuc626d"
-valid=false
+uid="uid://sr7jt32t1rew"
+path="res://.godot/imported/ConversationPanel.png-7caed0fea3b87eb91a245058a5cb8bfe.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Assets/tile_placeholder.png"
+source_file="res://Textures/UI/ConversationPanel.png"
+dest_files=["res://.godot/imported/ConversationPanel.png-7caed0fea3b87eb91a245058a5cb8bfe.ctex"]
 
 [params]
 

@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0j7gbwuc626d"
-valid=false
+uid="uid://blk7vcfjwu8ku"
+path="res://.godot/imported/attack_sheet.png-a90d28c829c4a1b4e30989def89eb979.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Assets/tile_placeholder.png"
+source_file="res://Assets/attack_sheet.png"
+dest_files=["res://.godot/imported/attack_sheet.png-a90d28c829c4a1b4e30989def89eb979.ctex"]
 
 [params]
 

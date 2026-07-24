@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0j7gbwuc626d"
-valid=false
+uid="uid://ckoti801vvk22"
+path="res://.godot/imported/MoreConversationArrow.png-6d37865b10e049815e4aa7fdf684b44c.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Assets/tile_placeholder.png"
+source_file="res://Textures/UI/MoreConversationArrow.png"
+dest_files=["res://.godot/imported/MoreConversationArrow.png-6d37865b10e049815e4aa7fdf684b44c.ctex"]
 
 [params]
 

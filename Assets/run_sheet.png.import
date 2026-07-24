@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0j7gbwuc626d"
-valid=false
+uid="uid://b1jlbuh2alsfi"
+path="res://.godot/imported/run_sheet.png-50cb5ff240cb50c0194974e2a260d025.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Assets/tile_placeholder.png"
+source_file="res://Assets/run_sheet.png"
+dest_files=["res://.godot/imported/run_sheet.png-50cb5ff240cb50c0194974e2a260d025.ctex"]
 
 [params]
 

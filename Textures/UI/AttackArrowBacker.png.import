@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0j7gbwuc626d"
-valid=false
+uid="uid://d034kulpm5mug"
+path="res://.godot/imported/AttackArrowBacker.png-d389223a0087abc2fce9235372e8a9d0.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Assets/tile_placeholder.png"
+source_file="res://Textures/UI/AttackArrowBacker.png"
+dest_files=["res://.godot/imported/AttackArrowBacker.png-d389223a0087abc2fce9235372e8a9d0.ctex"]
 
 [params]
 

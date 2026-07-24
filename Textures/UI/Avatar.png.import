@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0j7gbwuc626d"
-valid=false
+uid="uid://dmx4j3t7j7kg2"
+path="res://.godot/imported/Avatar.png-0ebf9cc79cf6028fc34ad801c7cceb4e.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Assets/tile_placeholder.png"
+source_file="res://Textures/UI/Avatar.png"
+dest_files=["res://.godot/imported/Avatar.png-0ebf9cc79cf6028fc34ad801c7cceb4e.ctex"]
 
 [params]
 

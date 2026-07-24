@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0j7gbwuc626d"
-valid=false
+uid="uid://y85vshbpfcbp"
+path="res://.godot/imported/ActionNameBacker.png-71c9c9a27d4a3b17fc47d6b78e429995.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Assets/tile_placeholder.png"
+source_file="res://Textures/UI/ActionNameBacker.png"
+dest_files=["res://.godot/imported/ActionNameBacker.png-71c9c9a27d4a3b17fc47d6b78e429995.ctex"]
 
 [params]
 
