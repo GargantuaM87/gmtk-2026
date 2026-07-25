@@ -1,20 +1,31 @@
 [gd_scene format=3 uid="uid://dakf2yeo8iea6"]
 
-[ext_resource type="Script" uid="uid://q73fks1msu6k" path="res://Scenes/interactable_hitbox.gd" id="1_rjfsr"]
+[ext_resource type="FontFile" uid="uid://mtdu0bf066ol" path="res://Assets/PixelifySans-VariableFont_wght.ttf" id="1_fdhnq"]
 [ext_resource type="Script" uid="uid://ddsva8lwoepw" path="res://Scenes/area_2d.gd" id="1_tfqlr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olaw7"]
-size = Vector2(118, 96)
+size = Vector2(118, 71)
+
+[sub_resource type="LabelSettings" id="LabelSettings_olaw7"]
+font = ExtResource("1_fdhnq")
 
 [node name="InteractableHitbox" type="Node2D" unique_id=2116483056]
-script = ExtResource("1_rjfsr")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=405530071]
 script = ExtResource("1_tfqlr")
 
 [node name="Interactable Hitbox" type="CollisionShape2D" parent="Area2D" unique_id=1208420981]
-position = Vector2(0, -2)
+position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_olaw7")
 
+[node name="Label" type="Label" parent="." unique_id=1667123725]
+offset_left = -20.0
+offset_top = -36.0
+offset_right = 20.0
+offset_bottom = 7.0
+text = "Test
+v"
+label_settings = SubResource("LabelSettings_olaw7")
+horizontal_alignment = 1
+
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
-[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

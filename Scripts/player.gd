@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 @export var jump_buffer_timer : float = 0.1
 @export var coyote_time : float = 0.1
-
+signal interact
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const GRAVITY = 1000
@@ -15,7 +15,8 @@ const HORIZONTAL_VELOCITY = 350
 var attacking = false 
 var play_jump = true # if jumping is vailable
 var jump_buffer : bool = false # jump buffering
-
+func _ready() -> void:
+	RenderingServer.set_default_clear_color(Color(0.008, 0.008, 0.008, 1.0)) # Light gray
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
@@ -30,6 +31,9 @@ func _physics_process(delta: float) -> void:
 			jump()
 			jump_buffer = false
 	
+	
+	if Input.is_action_just_pressed("interact"): # e by default pls
+		emit_signal("interact")
 	#Jump Action
 	if Input.is_action_just_pressed("space"):
 		if play_jump:

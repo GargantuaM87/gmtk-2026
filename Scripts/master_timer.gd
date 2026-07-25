@@ -5,7 +5,7 @@ class_name MasterTimer
 @onready var label : Label = $CanvasLayer/ClockTime
 
 var time = time_amount
-var stopped = false
+var stopped = true
 
 func _process(delta: float) -> void:
 	if stopped:
@@ -33,4 +33,7 @@ func increment_time(new_time : float):
 
 func reset():
 	time = 60.0	
-
+func start():
+	stopped = false
+func stop():
+	stopped = true

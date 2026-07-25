@@ -1,16 +1,10 @@
 [gd_scene format=4 uid="uid://dh5sr4tbl6hrh"]
 
-[ext_resource type="PackedScene" uid="uid://cr3l7x8g53tq4" path="res://Scenes/player.tscn" id="1_rfhst"]
 [ext_resource type="PackedScene" uid="uid://blcfx0ykoxuoo" path="res://Scenes/enemy_1.tscn" id="2_cv17v"]
 [ext_resource type="PackedScene" uid="uid://b5km8n312ijbo" path="res://Scenes/Levels/Levelreqs/physics_tile.tscn" id="3_v8iqp"]
 [ext_resource type="PackedScene" uid="uid://c8qyr1ibghc4m" path="res://Scenes/master_timer.tscn" id="4_cv17v"]
 
 [node name="Node2D" type="Node2D" unique_id=1036307500]
-
-[node name="Player" parent="." unique_id=201653633 instance=ExtResource("1_rfhst")]
-unique_name_in_owner = true
-position = Vector2(338, 400)
-coyote_time = 0.25
 
 [node name="Enemy1" parent="." unique_id=1646424994 instance=ExtResource("2_cv17v")]
 visible = false
