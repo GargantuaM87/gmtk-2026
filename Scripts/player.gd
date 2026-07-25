@@ -1,6 +1,6 @@
 extends CharacterBody2D
-@onready var sprite2D = $AnimatedSprite2D
-@onready var attackHitbox = $AttackArea/AttackHitBox
+@onready var sprite = $AnimatedSprite2D
+@onready var attack_hitbox = $AttackArea/AttackHitBox
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -30,38 +30,38 @@ func _physics_process(delta: float) -> void:
 	if dir:
 		velocity.x = dir * SPEED
 		if dir > 0:
-			sprite2D.flip_h = false
+			sprite.flip_h = false
 		else:
-			sprite2D.flip_h = true
+			sprite.flip_h = true
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	# Movement Animation
 	if is_on_floor() and !attacking:
 		# Necessary animations to play
 		if dir == 0:
-			sprite2D.play("default")
+			sprite.play("default")
 		else:
-			sprite2D.play("running")
+			sprite.play("running")
 	# Jumping Animation
 	elif !is_on_floor() and !attacking and play_jump:
-		sprite2D.play("jumping")
-		if not sprite2D.animation_finished.is_connected(_on_jump_finished):
-			sprite2D.animation_finished.connect(_on_jump_finished, CONNECT_ONE_SHOT)
+		sprite.play("jumping")
+		if not sprite.animation_finished.is_connected(_on_jump_finished):
+			sprite.animation_finished.connect(_on_jump_finished, CONNECT_ONE_SHOT)
 	if is_on_floor() and Input.is_action_just_pressed("mouse_left"):
-		sprite2D.play("attack")
+		sprite.play("attack")
 		velocity = Vector2(0, 0)
 		attacking = true
-		if sprite2D.frame == 8 or sprite2D.frame == 9:
-			attackHitbox.disabled = false
+		if sprite.frame == 8 or sprite.frame == 9:
+			attack_hitbox.disabled = false
 		else:
-			attackHitbox.disabled = true
-		if not sprite2D.animation_finished.is_connected(_on_attack_finished):
-			sprite2D.animation_finished.connect(_on_attack_finished, CONNECT_ONE_SHOT)
+			attack_hitbox.disabled = true
+		if not sprite.animation_finished.is_connected(_on_attack_finished):
+			sprite.animation_finished.connect(_on_attack_finished, CONNECT_ONE_SHOT)
 	move_and_slide()
 	
 func _on_attack_finished():
 	attacking = false
 func _on_jump_finished():
-	sprite2D.play("in_air")
+	sprite.play("in_air")
 	play_jump = false
 	
