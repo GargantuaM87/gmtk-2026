@@ -5,7 +5,6 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const GRAVITY = 1000
-const HORIZONTAL_VELOCITY = 200
 const HORIZONTAL_VELOCITY = 350
 
 var attacking = false
@@ -15,9 +14,6 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
 	if is_on_floor():
-		velocity.y = 0
-		if Input.is_action_pressed("space"):
-			velocity.y = JUMP_VELOCITY
 		play_jump = true
 	
 	#Jump Action
