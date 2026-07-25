@@ -1,27 +1,17 @@
 [gd_scene format=3 uid="uid://cr3l7x8g53tq4"]
 
 [ext_resource type="Script" uid="uid://cj14row67tf16" path="res://Scripts/player.gd" id="1_6t5aa"]
-[node name="Node2D" type="Node2D" parent="." unique_id=1987988485]
-
-
-[ext_resource type="Texture2D" uid="uid://cyn0k5u64blm7" path="res://Assets/player_placeholder.png" id="2_vgqql"]
-[ext_resource type="PackedScene" uid="uid://4q8y5f5yqwc3" path="res://Scenes/sword.tscn" id="3_fkybt"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_pra2e"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_vgqql")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="Texture2D" uid="uid://icfhvqk8yh2e" path="res://Assets/idle_sheet.png" id="2_fkybt"]
+[ext_resource type="Texture2D" uid="uid://blk7vcfjwu8ku" path="res://Assets/attack_sheet.png" id="2_x3wgy"]
+[ext_resource type="Texture2D" uid="uid://b14vk15iyedia" path="res://Assets/jump_sheet.png" id="3_x3wgy"]
+[ext_resource type="Texture2D" uid="uid://b1jlbuh2alsfi" path="res://Assets/run_sheet.png" id="4_fkybt"]
+[ext_resource type="PackedScene" uid="uid://c3hlprc7fvtkq" path="res://Scenes/text_handler.tscn" id="5_fkybt"]
+[ext_resource type="Shader" uid="uid://bnclfpwtus0nf" path="res://Assets/VFX/01.gdshader" id="6_8erm5"]
+[ext_resource type="AudioStream" uid="uid://dxq6sfc6t8oeu" path="res://Assets/sounds/hi guys.mp3" id="7_3smsa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0omw4"]
 radius = 16.0
 height = 62.0
-
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f1ek2"]
 shader = ExtResource("6_8erm5")
@@ -586,16 +576,35 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=201653633]
+collision_layer = 2
 script = ExtResource("1_6t5aa")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1166195807]
-sprite_frames = SubResource("SpriteFrames_pra2e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=108080184]
 shape = SubResource("CapsuleShape2D_0omw4")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=368770509]
-bus = &"BGM"
+zoom = Vector2(3.5, 3.5)
+drag_horizontal_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=345698072]
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer" unique_id=1115874379]
+material = SubResource("ShaderMaterial_f1ek2")
+custom_minimum_size = Vector2(900, 300)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="textHandler" parent="." unique_id=956234022 instance=ExtResource("5_fkybt")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1296044148]
+stream = ExtResource("7_3smsa")
+autoplay = true
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=1221206056]
 
@@ -608,7 +617,3 @@ disabled = true
 sprite_frames = SubResource("SpriteFrames_afs4w")
 animation = &"jumping"
 autoplay = "default"
-=======
-
-[node name="Sword" parent="." unique_id=1634416026 instance=ExtResource("3_fkybt")]
-position = Vector2(22, 6)
