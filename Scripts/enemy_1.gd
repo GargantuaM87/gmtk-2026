@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+@onready var hitbox : Area2D = $Node2D/Hurtbox1
+
+@export var health : float = 2
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -300
@@ -7,7 +10,10 @@ const GRAVITY = 1000
 const HORIZONTAL_VELOCITY = 400
 
 var last_position = Vector2(0,0)
-var health = 2
+
+func _ready() -> void:
+	hitbox.area_entered.connect(on_hitbox_entered)
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
@@ -24,6 +30,10 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		move_and_slide()
 	last_position = position
+
+func on_hitbox_entered(node : Area2D) -> void: 
+	if node.owner.is_in_group("player"):
+		take_damage()
 	
 func take_damage():
 	health -= 1

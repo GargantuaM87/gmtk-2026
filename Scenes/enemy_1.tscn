@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://wo1dxs6gu7my" path="res://Scripts/enemy_1.gd" id="1_0a874"]
 [ext_resource type="Texture2D" uid="uid://cyn0k5u64blm7" path="res://Assets/player_placeholder.png" id="2_lssre"]
-[ext_resource type="Script" uid="uid://tpx0i7qn0bcq" path="res://Scripts/hurtbox1.gd" id="3_lssre"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pra2e"]
 animations = [{
@@ -33,7 +32,6 @@ script = ExtResource("1_0a874")
 sprite_frames = SubResource("SpriteFrames_pra2e")
 
 [node name="Hurtbox1" type="Area2D" parent="Node2D" unique_id=1546152911]
-script = ExtResource("3_lssre")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Hurtbox1" unique_id=1582177332]
 shape = SubResource("CapsuleShape2D_pra2e")
