@@ -34,11 +34,22 @@ func _physics_process(delta: float) -> void:
 		if dir == 0:
 			sprite2D.play("default")
 		else:
-			sprite2D.play("running")
-	else:
-		sprite2D.play("jumping")	
-	
+			sprite.play("running")
+	# Jumping Animation
+	elif !is_on_floor() and !attacking and play_jump:
+		sprite.play("jumping")
+		if not sprite.animation_finished.is_connected(_on_jump_finished):
+			sprite.animation_finished.connect(_on_jump_finished, CONNECT_ONE_SHOT)
+	# Attack Animation
 	if Input.is_action_just_pressed("mouse_left"):
-		pass
+		sprite.play("attack")
+		velocity = Vector2(0, 0)
+		attacking = true
+		if sprite.frame == 8 or sprite.frame == 9:
+			attack_hitbox.disabled = false
+		else:
+			attack_hitbox.disabled = true
+		if not sprite.animation_finished.is_connected(_on_attack_finished):
+			sprite.animation_finished.connect(_on_attack_finished, CONNECT_ONE_SHOT)
 	move_and_slide()
 	
