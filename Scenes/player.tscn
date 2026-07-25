@@ -575,7 +575,7 @@ animations = [{
 "speed": 24.0
 }]
 
-[node name="Player" type="CharacterBody2D" unique_id=201653633]
+[node name="Player" type="CharacterBody2D" unique_id=201653633 groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_6t5aa")
 
@@ -589,6 +589,7 @@ drag_horizontal_enabled = true
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=345698072]
 
 [node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer" unique_id=1115874379]
+visible = false
 material = SubResource("ShaderMaterial_f1ek2")
 custom_minimum_size = Vector2(900, 300)
 anchors_preset = 15
@@ -620,4 +621,5 @@ autoplay = "default"
 
 [node name="CoyoteTimer" type="Timer" parent="." unique_id=2146660500]
 
+[connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]
 [connection signal="timeout" from="CoyoteTimer" to="." method="coyote_timeout"]

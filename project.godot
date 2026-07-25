@@ -26,6 +26,8 @@ project/assembly_name="GMTK2026"
 [global_group]
 
 stopwatch=""
+player=""
+enemies=""
 
 [input]
 
