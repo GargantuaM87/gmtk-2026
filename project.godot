@@ -23,6 +23,10 @@ buses/default_bus_layout="uid://ct33mw21k8ao4"
 
 project/assembly_name="GMTK2026"
 
+[global_group]
+
+stopwatch=""
+
 [input]
 
 space={
