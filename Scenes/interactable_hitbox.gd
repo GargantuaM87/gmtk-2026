@@ -3,6 +3,7 @@ extends Node2D
 @onready var area_2d: Area2D = $Area2D
 @onready var audio_stream_player: AudioStreamPlayer = $"../AudioStreamPlayer"
 @onready var master_timer: MasterTimer = $"../MasterTimer"
+@onready var roomgen: Node2D = $"../RoomManager"
 
 
 @export var text: TextEdit
@@ -22,5 +23,6 @@ func startGame():
 	audio_stream_player.play()
 	master_timer.start()
 	master_timer.get_child(0).get_child(0).show()
+	roomgen.loadRooms()
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	pass # Replace with function body.

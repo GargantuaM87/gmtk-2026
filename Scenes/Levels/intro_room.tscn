@@ -8,6 +8,9 @@
 [ext_resource type="Script" uid="uid://ddsva8lwoepw" path="res://Scenes/area_2d.gd" id="2_p8xcm"]
 [ext_resource type="AudioStream" uid="uid://dxq6sfc6t8oeu" path="res://Assets/sounds/hi guys.mp3" id="3_owrcd"]
 [ext_resource type="Script" uid="uid://cx4ni0aps55mc" path="res://Scenes/Levels/kill_box.gd" id="8_uwx5d"]
+[ext_resource type="PackedScene" uid="uid://dfvp0gt1v1nbb" path="res://Scenes/Levels/lvl-01/01.tscn" id="10_lqx03"]
+[ext_resource type="Script" uid="uid://beos4pymc5cqm" path="res://Scenes/Levels/Levelreqs/levelManager.gd" id="10_y7udq"]
+[ext_resource type="PackedScene" uid="uid://cgkgv4jq54hxq" path="res://Scenes/Levels/lvl-01/02.tscn" id="11_lqx03"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6d06y"]
 size = Vector2(118, 95)
@@ -17,27 +20,27 @@ line_spacing = -5.0
 font = ExtResource("2_gdoci")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sjg0t"]
-size = Vector2(959, 399)
+size = Vector2(959, 39.5)
 
 [node name="IntroRoom" type="Node2D" unique_id=16661282]
 
 [node name="MasterTimer" parent="." unique_id=1502249975 instance=ExtResource("1_p8xcm")]
 killtimescale = 600.0
 
-[node name="InteractableHitbox" type="Node2D" parent="." unique_id=2116483056]
+[node name="button" type="Node2D" parent="." unique_id=2116483056]
 position = Vector2(-80, 86)
 script = ExtResource("1_jjvw5")
 
-[node name="Area2D" type="Area2D" parent="InteractableHitbox" unique_id=405530071]
+[node name="Area2D" type="Area2D" parent="button" unique_id=405530071]
 collision_layer = 0
 collision_mask = 255
 script = ExtResource("2_p8xcm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableHitbox/Area2D" unique_id=1073125652]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="button/Area2D" unique_id=1073125652]
 position = Vector2(0, -5.5)
 shape = SubResource("RectangleShape2D_6d06y")
 
-[node name="Label" type="Label" parent="InteractableHitbox" unique_id=729778196]
+[node name="Label" type="Label" parent="button" unique_id=729778196]
 texture_filter = 1
 offset_left = -20.0
 offset_top = -54.0
@@ -64,10 +67,16 @@ collision_mask = 255
 script = ExtResource("8_uwx5d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillBox" unique_id=865232122]
-position = Vector2(587, 605.5)
+position = Vector2(43, 365.25)
 shape = SubResource("RectangleShape2D_sjg0t")
 
-[connection signal="area_entered" from="InteractableHitbox/Area2D" to="InteractableHitbox" method="_on_area_2d_area_entered"]
-[connection signal="body_entered" from="InteractableHitbox/Area2D" to="InteractableHitbox/Area2D" method="_on_body_entered"]
-[connection signal="body_exited" from="InteractableHitbox/Area2D" to="InteractableHitbox/Area2D" method="_on_body_exited"]
+[node name="RoomManager" type="Marker2D" parent="." unique_id=973738065]
+position = Vector2(352, 160)
+script = ExtResource("10_y7udq")
+scenes = Array[PackedScene]([ExtResource("10_lqx03"), ExtResource("11_lqx03")])
+rooms = 3
+
+[connection signal="area_entered" from="button/Area2D" to="button" method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="button/Area2D" to="button/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="button/Area2D" to="button/Area2D" method="_on_body_exited"]
 [connection signal="body_entered" from="KillBox" to="KillBox" method="_on_body_entered"]
