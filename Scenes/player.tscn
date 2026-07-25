@@ -617,3 +617,7 @@ disabled = true
 sprite_frames = SubResource("SpriteFrames_afs4w")
 animation = &"jumping"
 autoplay = "default"
+
+[node name="CoyoteTimer" type="Timer" parent="." unique_id=2146660500]
+
+[connection signal="timeout" from="CoyoteTimer" to="." method="coyote_timeout"]
