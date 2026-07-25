@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c18altsnmee12" path="res://Assets/dash_attack_sheet.png" id="10_pu2lt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0omw4"]
-radius = 16.0
+radius = 12.0
 height = 62.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f1ek2"]
@@ -23,7 +23,7 @@ shader_parameter/inner_radius = 0.0
 shader_parameter/outer_radius = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_exf34"]
-size = Vector2(29, 57)
+size = Vector2(37, 57)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yh6i2"]
 atlas = ExtResource("2_x3wgy")
@@ -662,15 +662,17 @@ autoplay = true
 script = ExtResource("5_f1ek2")
 
 [node name="AttackHitBox" type="CollisionShape2D" parent="AttackArea" unique_id=1983990035]
-position = Vector2(32.5, 3)
+position = Vector2(22.5, 3)
 shape = SubResource("RectangleShape2D_exf34")
 disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1166195807]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_afs4w")
-animation = &"run_attack"
+animation = &"attack"
 autoplay = "default"
-frame_progress = 0.5181932
+frame = 13
+frame_progress = 1.0
 
 [node name="CoyoteTimer" type="Timer" parent="." unique_id=2146660500]
 
