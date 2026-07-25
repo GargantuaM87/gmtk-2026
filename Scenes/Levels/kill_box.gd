@@ -1,7 +1,7 @@
 extends Area2D
 signal activated
 var bodies_in_hitbox: Array = []
-@onready var player: CharacterBody2D = $"../Player"
+@onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 var started:bool = false

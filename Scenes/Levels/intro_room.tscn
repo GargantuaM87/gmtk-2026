@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b5km8n312ijbo" path="res://Scenes/Levels/Levelreqs/physics_tile.tscn" id="2_owrcd"]
 [ext_resource type="Script" uid="uid://ddsva8lwoepw" path="res://Scenes/area_2d.gd" id="2_p8xcm"]
 [ext_resource type="AudioStream" uid="uid://dxq6sfc6t8oeu" path="res://Assets/sounds/hi guys.mp3" id="3_owrcd"]
-[ext_resource type="Script" uid="uid://cx4ni0aps55mc" path="res://Scenes/Levels/kill_box.gd" id="8_uwx5d"]
+[ext_resource type="PackedScene" uid="uid://dig6a263l41co" path="res://Scenes/Levels/Levelreqs/kill_box.tscn" id="8_lqx03"]
 [ext_resource type="PackedScene" uid="uid://dfvp0gt1v1nbb" path="res://Scenes/Levels/lvl-01/01.tscn" id="10_lqx03"]
 [ext_resource type="Script" uid="uid://beos4pymc5cqm" path="res://Scenes/Levels/Levelreqs/levelManager.gd" id="10_y7udq"]
 [ext_resource type="PackedScene" uid="uid://cgkgv4jq54hxq" path="res://Scenes/Levels/lvl-01/02.tscn" id="11_lqx03"]
@@ -18,9 +18,6 @@ size = Vector2(118, 95)
 [sub_resource type="LabelSettings" id="LabelSettings_olaw7"]
 line_spacing = -5.0
 font = ExtResource("2_gdoci")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sjg0t"]
-size = Vector2(959, 39.5)
 
 [node name="IntroRoom" type="Node2D" unique_id=16661282]
 
@@ -62,21 +59,14 @@ tile_map_data = PackedByteArray("AAD+/wUAAAAAAAAAAAD//wUAAAAAAAAAAAAAAAUAAAAAAAA
 stream = ExtResource("3_owrcd")
 bus = &"BGM"
 
-[node name="KillBox" type="Area2D" parent="." unique_id=759129563]
-collision_mask = 255
-script = ExtResource("8_uwx5d")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KillBox" unique_id=865232122]
-position = Vector2(43, 365.25)
-shape = SubResource("RectangleShape2D_sjg0t")
+[node name="KillBox" parent="." unique_id=377849793 instance=ExtResource("8_lqx03")]
 
 [node name="RoomManager" type="Marker2D" parent="." unique_id=973738065]
 position = Vector2(352, 160)
 script = ExtResource("10_y7udq")
-scenes = Array[PackedScene]([ExtResource("10_lqx03"), ExtResource("11_lqx03")])
+scenes = Array[PackedScene]([ExtResource("11_lqx03"), ExtResource("10_lqx03")])
 rooms = 3
 
 [connection signal="area_entered" from="button/Area2D" to="button" method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="button/Area2D" to="button/Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="button/Area2D" to="button/Area2D" method="_on_body_exited"]
-[connection signal="body_entered" from="KillBox" to="KillBox" method="_on_body_entered"]
