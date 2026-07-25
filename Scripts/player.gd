@@ -2,12 +2,14 @@ extends CharacterBody2D
 @onready var sprite = $AnimatedSprite2D
 @onready var attack_hitbox = $AttackArea/AttackHitBox
 @onready var coyote_timer : Timer = $CoyoteTimer
+@onready var master_timer: MasterTimer = $"../MasterTimer"
 
 
 @export var jump_buffer_timer : float = 0.1
 @export var coyote_time : float = 0.1
 @export var hitbox_time : float = 0.2
 @export var attack_cooldown : float = 0.3
+signal interact
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -19,7 +21,8 @@ var can_attack = true
 var attacking = false 
 var play_jump = true # if jumping is vailable
 var jump_buffer : bool = false # jump buffering
-
+func _ready() -> void:
+	RenderingServer.set_default_clear_color(Color(0.008, 0.008, 0.008, 1.0)) # Light gray
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
@@ -34,6 +37,9 @@ func _physics_process(delta: float) -> void:
 			jump()
 			jump_buffer = false
 	
+	
+	if Input.is_action_just_pressed("interact"): # e by default pls
+		emit_signal("interact")
 	#Jump Action
 	if Input.is_action_just_pressed("space"):
 		if play_jump:
@@ -98,3 +104,10 @@ func coyote_timeout() -> void:
 
 func on_jump_buffer_timeut() -> void:
 	jump_buffer = false
+	
+	
+func kill() -> void: #Killbox to activate timer effect.
+	master_timer.kill()
+	
+func death(): #When the player actually dies
+	print('hi')

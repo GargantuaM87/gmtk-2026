@@ -9,10 +9,10 @@ script = ExtResource("1_oa2x3")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1108391317]
 
 [node name="ClockTime" type="Label" parent="CanvasLayer" unique_id=1811702762]
-offset_left = 418.0
-offset_top = 1.0
-offset_right = 723.0
-offset_bottom = 155.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 59.0
+grow_horizontal = 2
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("1_hyk5c")
 theme_override_font_sizes/font_size = 48
