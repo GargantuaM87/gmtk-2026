@@ -5,6 +5,7 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -300
 const GRAVITY = 1000
 const HORIZONTAL_VELOCITY = 400
+
 var last_position = Vector2(0,0)
 var health = 2
 func _physics_process(delta: float) -> void:
