@@ -17,12 +17,12 @@ line_spacing = -5.0
 font = ExtResource("2_gdoci")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sjg0t"]
-size = Vector2(959, 399)
+size = Vector2(959, 84)
 
 [node name="IntroRoom" type="Node2D" unique_id=16661282]
 
 [node name="MasterTimer" parent="." unique_id=1502249975 instance=ExtResource("1_p8xcm")]
-killtimescale = 600.0
+time_amount = null
 
 [node name="InteractableHitbox" type="Node2D" parent="." unique_id=2116483056]
 position = Vector2(-80, 86)
@@ -60,14 +60,12 @@ stream = ExtResource("3_owrcd")
 bus = &"BGM"
 
 [node name="KillBox" type="Area2D" parent="." unique_id=759129563]
-collision_mask = 255
 script = ExtResource("8_uwx5d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillBox" unique_id=865232122]
-position = Vector2(587, 605.5)
+position = Vector2(587, 448)
 shape = SubResource("RectangleShape2D_sjg0t")
 
 [connection signal="area_entered" from="InteractableHitbox/Area2D" to="InteractableHitbox" method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="InteractableHitbox/Area2D" to="InteractableHitbox/Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="InteractableHitbox/Area2D" to="InteractableHitbox/Area2D" method="_on_body_exited"]
-[connection signal="body_entered" from="KillBox" to="KillBox" method="_on_body_entered"]

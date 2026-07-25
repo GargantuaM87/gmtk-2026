@@ -4,6 +4,7 @@ extends Node2D
 @onready var audio_stream_player: AudioStreamPlayer = $"../AudioStreamPlayer"
 @onready var master_timer: MasterTimer = $"../MasterTimer"
 
+
 @export var text: TextEdit
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

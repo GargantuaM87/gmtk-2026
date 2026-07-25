@@ -2,6 +2,7 @@ extends CharacterBody2D
 @onready var sprite = $AnimatedSprite2D
 @onready var attack_hitbox = $AttackArea/AttackHitBox
 @onready var coyote_timer : Timer = $CoyoteTimer
+@onready var master_timer: MasterTimer = $"../MasterTimer"
 
 @export var jump_buffer_timer : float = 0.1
 @export var coyote_time : float = 0.1
@@ -92,3 +93,10 @@ func coyote_timeout() -> void:
 
 func on_jump_buffer_timeut() -> void:
 	jump_buffer = false
+	
+	
+func kill() -> void: #Killbox to activate timer effect.
+	master_timer.kill()
+	
+func death(): #When the player actually dies
+	print('hi')
