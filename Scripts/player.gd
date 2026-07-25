@@ -3,15 +3,19 @@ extends CharacterBody2D
 @onready var attack_hitbox = $AttackArea/AttackHitBox
 @onready var coyote_timer : Timer = $CoyoteTimer
 
+
 @export var jump_buffer_timer : float = 0.1
 @export var coyote_time : float = 0.1
-signal interact
+signal interact@export var hitbox_time : float = 0.2
+@export var attack_cooldown : float = 0.3
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const GRAVITY = 1000
 const HORIZONTAL_VELOCITY = 350
 
 # if the player is ccurently attacking, creates a lock to prevent other animations from override
+var can_attack = true
 var attacking = false 
 var play_jump = true # if jumping is vailable
 var jump_buffer : bool = false # jump buffering
@@ -65,24 +69,30 @@ func _physics_process(delta: float) -> void:
 		if not sprite.animation_finished.is_connected(_on_jump_finished):
 			sprite.animation_finished.connect(_on_jump_finished, CONNECT_ONE_SHOT)
 	# Attack Animation
-	if is_on_floor() and Input.is_action_just_pressed("mouse_left"):
+	if is_on_floor() and Input.is_action_just_pressed("mouse_left") and can_attack:
 		sprite.play("attack")
-		velocity = Vector2(0, 0)
+		velocity.x = 0
 		attacking = true
-		if sprite.frame == 8 or sprite.frame == 9:
-			attack_hitbox.disabled = false
-		else:
-			attack_hitbox.disabled = true
-		if not sprite.animation_finished.is_connected(_on_attack_finished):
-			sprite.animation_finished.connect(_on_attack_finished, CONNECT_ONE_SHOT)
+		can_attack = false
+		attack_hitbox.disabled = false
+
+		# So this is a timer for attacking
+		get_tree().create_timer(attack_cooldown).timeout.connect(_on_attack_finished)
+		# Timer for when the box collider will be disabled again
+		get_tree().create_timer(hitbox_time).timeout.connect(on_hitbox_finished)
+
 	move_and_slide()
 	
 func _on_attack_finished():
 	attacking = false
+	can_attack = true
+
+func on_hitbox_finished():
+	attack_hitbox.disabled = true
+
 func _on_jump_finished():
 	sprite.play("in_air")
 	
-
 func jump() -> void:
 	velocity.y = JUMP_VELOCITY
 	play_jump = false

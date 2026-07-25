@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://blk7vcfjwu8ku" path="res://Assets/attack_sheet.png" id="2_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://b14vk15iyedia" path="res://Assets/jump_sheet.png" id="3_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://b1jlbuh2alsfi" path="res://Assets/run_sheet.png" id="4_fkybt"]
+[ext_resource type="Script" uid="uid://dtyid0ttphg2i" path="res://Scripts/attack_area.gd" id="5_f1ek2"]
 [ext_resource type="PackedScene" uid="uid://c3hlprc7fvtkq" path="res://Scenes/text_handler.tscn" id="5_fkybt"]
 [ext_resource type="Shader" uid="uid://bnclfpwtus0nf" path="res://Assets/VFX/01.gdshader" id="6_8erm5"]
 
@@ -19,7 +20,7 @@ shader_parameter/inner_radius = 0.0
 shader_parameter/outer_radius = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_exf34"]
-size = Vector2(25, 57)
+size = Vector2(29, 57)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yh6i2"]
 atlas = ExtResource("2_x3wgy")
@@ -603,9 +604,10 @@ metadata/_edit_use_anchors_ = true
 [node name="textHandler" parent="." unique_id=956234022 instance=ExtResource("5_fkybt")]
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=1221206056]
+script = ExtResource("5_f1ek2")
 
 [node name="AttackHitBox" type="CollisionShape2D" parent="AttackArea" unique_id=1983990035]
-position = Vector2(34.5, 3)
+position = Vector2(32.5, 3)
 shape = SubResource("RectangleShape2D_exf34")
 disabled = true
 
