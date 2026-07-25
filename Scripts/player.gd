@@ -7,6 +7,7 @@ extends CharacterBody2D
 
 @export var jump_buffer_timer : float = 0.1
 @export var coyote_time : float = 0.1
+@export var dash_time : float = 0.1
 @export var hitbox_time : float = 0.2
 @export var attack_cooldown : float = 0.3
 @export var jump_attacks : float = 1
@@ -76,12 +77,14 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor() and Input.is_action_just_pressed("mouse_left") and can_attack:
 		sprite.play("attack")
 		velocity.x = 0
+		
 		attacking = true
 		can_attack = false
 		attack_hitbox.disabled = false
 		attack_timers()
 	# Attack Animation in the air
 	if !is_on_floor() and Input.is_action_just_pressed("mouse_left") and jump_attacks > 0:
+		
 		sprite.play("jump_attack")
 		velocity.y = 0
 		attacking = true
@@ -97,6 +100,7 @@ func attack_timers() -> void:
 	get_tree().create_timer(attack_cooldown).timeout.connect(_on_attack_finished)
 	# Timer for when the box collider will be disabled again
 	get_tree().create_timer(hitbox_time).timeout.connect(on_hitbox_finished)
+
 	
 func _on_attack_finished():
 	attacking = false

@@ -1,14 +1,31 @@
 extends Label
 
 @export var typing_speed: float = 0.02 # Time in seconds per character
+@onready var introseq: Label = $"."
 
 func _ready() -> void:
-	play_typewriter("-$  ./detonate.sh
+	play_typewriter("-$  ./sub19/failsafes/detonate.sh
 > detonation sequence activated
 > FATAL ERR: OVERRIDE PROTECTION 
 STILL IN PLACE
 
 > ERR : REQUIRES USER INPUT...")
+	while true:
+
+		introseq.text = introseq.text.left(-3)
+		await get_tree().create_timer(0.75).timeout
+
+
+		introseq.text += "."
+		await get_tree().create_timer(0.75).timeout
+
+		introseq.text += "."
+		await get_tree().create_timer(0.75).timeout
+
+		introseq.text += "."
+		await get_tree().create_timer(0.75).timeout
+		
+	
 
 func play_typewriter(new_text: String) -> void:
 	text = new_text
