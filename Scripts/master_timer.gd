@@ -5,6 +5,7 @@ class_name MasterTimer
 @onready var label : Label = $CanvasLayer/ClockTime
 @export var killtimescale = 50.0
 @export var timescale = 1.0
+@onready var room_timer: Label = $"../RoomTimer"
 
 
 var time = time_amount
@@ -36,7 +37,9 @@ func time_to_string() -> String:
 	return actual_string
 
 func update_stopwatch_label():
-	label.text = time_to_string()
+	var text = time_to_string()
+	label.text = text
+	room_timer.text = text
 
 func update_time(new_time : float):
 	time = new_time

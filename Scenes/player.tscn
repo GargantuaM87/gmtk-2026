@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://dtyid0ttphg2i" path="res://Scripts/attack_area.gd" id="5_f1ek2"]
 [ext_resource type="PackedScene" uid="uid://c3hlprc7fvtkq" path="res://Scenes/text_handler.tscn" id="5_fkybt"]
 [ext_resource type="Shader" uid="uid://bnclfpwtus0nf" path="res://Assets/VFX/01.gdshader" id="6_8erm5"]
-[ext_resource type="AudioStream" uid="uid://dxq6sfc6t8oeu" path="res://Assets/sounds/hi guys.mp3" id="7_3smsa"]
 [ext_resource type="Texture2D" uid="uid://d2a640ul40kkf" path="res://Assets/jump_attack_sheet.png" id="9_gymyn"]
 [ext_resource type="Texture2D" uid="uid://c18altsnmee12" path="res://Assets/dash_attack_sheet.png" id="10_pu2lt"]
 
@@ -638,6 +637,7 @@ shape = SubResource("CapsuleShape2D_0omw4")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=368770509]
 zoom = Vector2(2.185, 2.185)
+limit_enabled = false
 drag_horizontal_enabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=345698072]
@@ -656,10 +656,6 @@ size_flags_vertical = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="textHandler" parent="." unique_id=956234022 instance=ExtResource("5_fkybt")]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1296044148]
-stream = ExtResource("7_3smsa")
-autoplay = true
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=1221206056]
 script = ExtResource("5_f1ek2")
