@@ -22,7 +22,7 @@ var attacking = false
 var play_jump = true # if jumping is vailable
 var jump_buffer : bool = false # jump buffering
 func _ready() -> void:
-	RenderingServer.set_default_clear_color(Color(0.008, 0.008, 0.008, 1.0)) # Light gray
+	pass
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
