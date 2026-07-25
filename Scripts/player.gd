@@ -9,6 +9,7 @@ extends CharacterBody2D
 @export var coyote_time : float = 0.1
 @export var hitbox_time : float = 0.2
 @export var attack_cooldown : float = 0.3
+@export var jump_attacks : float = 1
 signal interact
 
 const SPEED = 300.0
@@ -19,19 +20,20 @@ const HORIZONTAL_VELOCITY = 350
 # if the player is ccurently attacking, creates a lock to prevent other animations from override
 var can_attack = true
 var attacking = false 
-var play_jump = true # if jumping is vailable
+var play_jump = true # if jumping is available
 var jump_buffer : bool = false # jump buffering
 func _ready() -> void:
 	RenderingServer.set_default_clear_color(Color(0.008, 0.008, 0.008, 1.0)) # Light gray
 func _physics_process(delta: float) -> void:
-	if not is_on_floor():
+	if not is_on_floor() and !attacking:
 		velocity.y += GRAVITY * delta
 		if(play_jump):
 			if coyote_timer.is_stopped():
 				coyote_timer.start(coyote_time)
 			#get_tree().create_timer(coyote_time).timeout.connect(coyote_timeout)
-	else:
+	elif is_on_floor() and !attacking:
 		play_jump = true
+		jump_attacks = 1
 		coyote_timer.stop()
 		if jump_buffer:
 			jump()
@@ -66,24 +68,35 @@ func _physics_process(delta: float) -> void:
 		else:
 			sprite.play("running")
 	# Jumping Animation
-	elif !is_on_floor() and !attacking and play_jump:
+	elif !is_on_floor() and !attacking:
 		sprite.play("jumping")
-		if not sprite.animation_finished.is_connected(_on_jump_finished):
-			sprite.animation_finished.connect(_on_jump_finished, CONNECT_ONE_SHOT)
-	# Attack Animation
+		#if not sprite.animation_finished.is_connected(_on_jump_finished):
+			#sprite.animation_finished.connect(_on_jump_finished, CONNECT_ONE_SHOT)
+	# Attack Animation on ground
 	if is_on_floor() and Input.is_action_just_pressed("mouse_left") and can_attack:
 		sprite.play("attack")
 		velocity.x = 0
 		attacking = true
 		can_attack = false
 		attack_hitbox.disabled = false
-
-		# So this is a timer for attacking
-		get_tree().create_timer(attack_cooldown).timeout.connect(_on_attack_finished)
-		# Timer for when the box collider will be disabled again
-		get_tree().create_timer(hitbox_time).timeout.connect(on_hitbox_finished)
+		attack_timers()
+	# Attack Animation in the air
+	if !is_on_floor() and Input.is_action_just_pressed("mouse_left") and jump_attacks > 0:
+		sprite.play("jump_attack")
+		velocity.y = 0
+		attacking = true
+		can_attack = false
+		jump_attacks = 0
+		attack_hitbox.disabled = false
+		attack_timers()
 
 	move_and_slide()
+
+func attack_timers() -> void:
+	# So this is a timer for attacking
+	get_tree().create_timer(attack_cooldown).timeout.connect(_on_attack_finished)
+	# Timer for when the box collider will be disabled again
+	get_tree().create_timer(hitbox_time).timeout.connect(on_hitbox_finished)
 	
 func _on_attack_finished():
 	attacking = false
