@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bisxgaw4ebgya"
-path="res://.godot/imported/player_sprite_sheet.png-0fcb3a037ff1de64bdd11ce6f2f3e2ed.ctex"
+uid="uid://c18altsnmee12"
+path="res://.godot/imported/dash_attack_sheet.png-357cad2fde261ec3bd973db4b31ae075.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/player_sprite_sheet.png"
-dest_files=["res://.godot/imported/player_sprite_sheet.png-0fcb3a037ff1de64bdd11ce6f2f3e2ed.ctex"]
+source_file="res://Assets/dash_attack_sheet.png"
+dest_files=["res://.godot/imported/dash_attack_sheet.png-357cad2fde261ec3bd973db4b31ae075.ctex"]
 
 [params]
 
