@@ -6,8 +6,9 @@ extends CharacterBody2D
 
 @export var jump_buffer_timer : float = 0.1
 @export var coyote_time : float = 0.1
-signal interact@export var hitbox_time : float = 0.2
+@export var hitbox_time : float = 0.2
 @export var attack_cooldown : float = 0.3
+signal interact
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
