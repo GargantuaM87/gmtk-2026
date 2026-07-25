@@ -10,6 +10,7 @@
 [node name="Player" parent="." unique_id=201653633 instance=ExtResource("1_rfhst")]
 unique_name_in_owner = true
 position = Vector2(338, 400)
+coyote_time = 0.25
 
 [node name="Enemy1" parent="." unique_id=1646424994 instance=ExtResource("2_cv17v")]
 visible = false

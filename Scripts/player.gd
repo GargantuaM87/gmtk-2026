@@ -1,8 +1,10 @@
 extends CharacterBody2D
 @onready var sprite = $AnimatedSprite2D
 @onready var attack_hitbox = $AttackArea/AttackHitBox
+@onready var coyote_timer : Timer = $CoyoteTimer
 
 @export var jump_buffer_timer : float = 0.1
+@export var coyote_time : float = 0.1
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -17,14 +19,19 @@ var jump_buffer : bool = false # jump buffering
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
+		if(play_jump):
+			if coyote_timer.is_stopped():
+				coyote_timer.start(coyote_time)
+			#get_tree().create_timer(coyote_time).timeout.connect(coyote_timeout)
 	else:
 		play_jump = true
+		coyote_timer.stop()
 		if jump_buffer:
 			jump()
 			jump_buffer = false
 	
 	#Jump Action
-	if Input.is_action_just_pressed("space") and is_on_floor():
+	if Input.is_action_just_pressed("space"):
 		if play_jump:
 			jump()
 		else:
@@ -74,6 +81,9 @@ func _on_jump_finished():
 
 func jump() -> void:
 	velocity.y = JUMP_VELOCITY
+	play_jump = false
+
+func coyote_timeout() -> void:
 	play_jump = false
 
 func on_jump_buffer_timeut() -> void:
