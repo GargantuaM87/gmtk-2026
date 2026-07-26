@@ -118,7 +118,6 @@ func _physics_process(delta: float) -> void:
 	#		jump_buffer = false
 		
 	handle_animations(dir)
-	print(last_dir)
 
 	move_and_slide()
 

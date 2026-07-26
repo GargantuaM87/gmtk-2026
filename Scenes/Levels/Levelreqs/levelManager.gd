@@ -1,45 +1,45 @@
 extends Node2D
 var rng = RandomNumberGenerator.new()
-@export var scenes: Array[PackedScene]
-@export var rooms: int
+@export var scenes: Array[lvlbundle]
 @onready var room_manager: Marker2D = $"."
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	
-	pass # Replace with function body.
 var loaded: Array[Node2D] = []
 var loadednums: Array[int] = []
-
-func genint():
-	var rand = rng.randi_range(0, scenes.size()-1)
-	return rand
-	
-func loadscene(target_exit: Vector2):
+var startpoint = null
+func _ready() -> void:
+	startpoint = room_manager.global_position
+	pass
+func genint(lvl: lvlbundle) -> int:
+	return rng.randi_range(0, lvl.roomarray.size() - 1)
+func loadscene(lvl: lvlbundle, target_exit: Vector2):
 	var rand = 0
 	while true:
-		rand = genint()
-		if loadednums.size() > scenes.size():
+		rand = genint(lvl)
+		print(rand)
+		if loadednums.size() == lvl.rooms:
 			print("flushedloadednums")
 			loadednums.clear()
 		if rand not in loadednums:
 			loadednums.append(rand)
 			break
-	var room = scenes[rand].instantiate()
+
+	var room = lvl.roomarray[rand].instantiate()
 	loaded.append(room)
 	add_child(room)
-	
+
 	var new_entrance: Vector2 = room.get_node("EntryPoint").global_position
-	# Calculate offset and shift the new room
 	var offset: Vector2 = target_exit - new_entrance
 	room.global_position += offset
-	
-	
+	await get_tree().process_frame
+
+func loadBundle(lvl: lvlbundle):
+	loadednums.clear()
+	await loadscene(lvl, startpoint)
+	for i in range(lvl.rooms - 1):
+		await loadscene(lvl, loaded[-1].get_node("ExitPoint").global_position)
+	startpoint = loaded[-1].get_node("ExitPoint").global_position
+
 func loadRooms():
-	loadscene(room_manager.global_position)
-	for i in (rooms - 1):
-		loadscene(loaded[-1].get_node("ExitPoint").global_position)
-		
-	pass
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	for bundle in scenes:
+		await loadBundle(bundle)
 func _process(delta: float) -> void:
 	pass

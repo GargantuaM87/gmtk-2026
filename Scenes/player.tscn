@@ -706,7 +706,7 @@ script = ExtResource("1_6t5aa")
 shape = SubResource("CapsuleShape2D_0omw4")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=368770509]
-zoom = Vector2(2.185, 2.185)
+zoom = Vector2(2.15, 2.15)
 limit_enabled = false
 drag_horizontal_enabled = true
 

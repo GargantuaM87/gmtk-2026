@@ -3,7 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://b5km8n312ijbo" path="res://Scenes/Levels/Levelreqs/physics_tile.tscn" id="1_n32ym"]
 [ext_resource type="PackedScene" uid="uid://dig6a263l41co" path="res://Scenes/Levels/Levelreqs/kill_box.tscn" id="2_ppisl"]
 
-[node name="01" type="Node2D" unique_id=293152980]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppisl"]
+size = Vector2(2277, 170)
+
+[node name="02" type="Node2D" unique_id=293152980]
 
 [node name="ExitPoint" type="Marker2D" parent="." unique_id=1322892094]
 position = Vector2(2400, 0)
@@ -18,3 +21,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAA
 
 [node name="KillBox" parent="." unique_id=377849793 instance=ExtResource("2_ppisl")]
 position = Vector2(245, 575)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillBox" unique_id=84078360]
+position = Vector2(968.5, 624)
+shape = SubResource("RectangleShape2D_ppisl")
