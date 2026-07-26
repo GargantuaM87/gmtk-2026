@@ -1,9 +1,17 @@
 [gd_scene format=3 uid="uid://dx4n6jjlyr1h6"]
 
+[ext_resource type="Script" uid="uid://himgqlhc55tm" path="res://Scripts/violetegon.gd" id="1_4n1ux"]
 [ext_resource type="Texture2D" uid="uid://b15cy5tk5obm8" path="res://Assets/EnemySheets/fly_charge-spritesheet.png" id="1_ryiai"]
 [ext_resource type="Texture2D" uid="uid://bfelybpyk1gdu" path="res://Assets/EnemySheets/fly_shoot_2-spritesheet.png" id="2_4n1ux"]
+[ext_resource type="Shader" uid="uid://c0rywt5rtdhpp" path="res://Assets/Shaders/blink.gdshader" id="2_tpm12"]
 [ext_resource type="Texture2D" uid="uid://kwca4qn7hq8l" path="res://Assets/EnemySheets/fly_hurt_1-spritesheet.png" id="3_tpm12"]
 [ext_resource type="Texture2D" uid="uid://ca88ducr82v82" path="res://Assets/EnemySheets/fly_idel_1-spritesheet.png" id="4_6861u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4n1ux"]
+resource_local_to_scene = true
+shader = ExtResource("2_tpm12")
+shader_parameter/blinkColor = Color(1, 1, 1, 1)
+shader_parameter/blink_intensity = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_euwce"]
 atlas = ExtResource("1_ryiai")
@@ -207,12 +215,20 @@ height = 44.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bxxt7"]
 
 [node name="Violetegon" type="CharacterBody2D" unique_id=1008581491]
+script = ExtResource("1_4n1ux")
+speed = null
+orbit_speed = null
+orbit_radius = null
+attack_range = null
+attack_cooldown = null
+health = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=761763833]
+material = SubResource("ShaderMaterial_4n1ux")
 sprite_frames = SubResource("SpriteFrames_euwce")
 animation = &"attack2"
 autoplay = "idle"
-frame_progress = 0.035023306
+frame_progress = 0.50609547
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=964287257]
 shape = SubResource("CapsuleShape2D_o10od")
