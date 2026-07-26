@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bghx5ydmxdhgb"
+path="res://.godot/imported/sfx intor.mp3-b52df1a3b0a911153bcf0e25110fa26a.mp3str"
+
+[deps]
+
+source_file="res://Assets/sounds/sfx intor.mp3"
+dest_files=["res://.godot/imported/sfx intor.mp3-b52df1a3b0a911153bcf0e25110fa26a.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.417
+bpm=120.0
+beat_count=33
+bar_beats=4

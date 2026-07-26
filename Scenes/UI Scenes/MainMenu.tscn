@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://jvpneaka0pqv"]
+
+[ext_resource type="Script" uid="uid://b838xgmurad1m" path="res://Scenes/UI Scenes/main_menu.gd" id="1_rnwon"]
+[ext_resource type="PackedScene" uid="uid://chffgs2hj1aqt" path="res://Scenes/UI Scenes/Fade.tscn" id="2_pqtna"]
+[ext_resource type="FontFile" uid="uid://mtdu0bf066ol" path="res://Assets/PixelifySans-VariableFont_wght.ttf" id="2_y7bq6"]
+[ext_resource type="AudioStream" uid="uid://sbv0cs1qxgo0" path="res://Assets/sounds/mainmenu.mp3" id="4_qvpnb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8ne1"]
+bg_color = Color(0.11858138, 0.11858139, 0.11858132, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_olaw7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_13eva"]
+
+[node name="MainMenu" type="Control" unique_id=706510710]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rnwon")
+
+[node name="Panel" type="Panel" parent="." unique_id=2076709383]
+layout_mode = 0
+offset_right = 1932.0
+offset_bottom = 1101.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1517731337]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.441
+anchor_top = 0.5
+anchor_right = 0.958
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 80
+
+[node name="Start" type="Button" parent="VBoxContainer" unique_id=880653102]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_focus_color = Color(0.11119685, 0.11119684, 0.11119684, 1)
+theme_override_colors/font_pressed_color = Color(0.15127608, 0.15127608, 0.15127608, 1)
+theme_override_colors/font_hover_color = Color(0.050639912, 0.05050862, 0.0645941, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.050980393, 0.050980393, 0.0627451, 1)
+theme_override_fonts/font = ExtResource("2_y7bq6")
+theme_override_font_sizes/font_size = 65
+theme_override_styles/normal = SubResource("StyleBoxFlat_l8ne1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_olaw7")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_13eva")
+text = ">> Begin Facility Overrides"
+alignment = 2
+
+[node name="Start2" type="Button" parent="VBoxContainer" unique_id=1296567772]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_focus_color = Color(0.11119685, 0.11119684, 0.11119684, 1)
+theme_override_colors/font_pressed_color = Color(0.15127608, 0.15127608, 0.15127608, 1)
+theme_override_colors/font_hover_color = Color(0.050639912, 0.05050862, 0.0645941, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.050980393, 0.050980393, 0.0627451, 1)
+theme_override_fonts/font = ExtResource("2_y7bq6")
+theme_override_font_sizes/font_size = 65
+theme_override_styles/normal = SubResource("StyleBoxFlat_l8ne1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_olaw7")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_13eva")
+text = ">> EDIT Configuration"
+alignment = 2
+
+[node name="Start3" type="Button" parent="VBoxContainer" unique_id=1270104044]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_focus_color = Color(0.11119685, 0.11119684, 0.11119684, 1)
+theme_override_colors/font_pressed_color = Color(0.15127608, 0.15127608, 0.15127608, 1)
+theme_override_colors/font_hover_color = Color(0.050639912, 0.05050862, 0.0645941, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.050980393, 0.050980393, 0.0627451, 1)
+theme_override_fonts/font = ExtResource("2_y7bq6")
+theme_override_font_sizes/font_size = 65
+theme_override_styles/normal = SubResource("StyleBoxFlat_l8ne1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_olaw7")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_13eva")
+text = ">> EXIT"
+alignment = 2
+
+[node name="ButtonManager" type="Control" parent="." unique_id=1954163200]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Fade" parent="ButtonManager" unique_id=1957454909 instance=ExtResource("2_pqtna")]
+visible = false
+layout_mode = 0
+
+[node name="fade_timer" type="Timer" parent="ButtonManager/Fade" unique_id=1668678260]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1203887597]
+stream = ExtResource("4_qvpnb")
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Start2" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Start3" to="." method="_on_start_pressed"]
+[connection signal="timeout" from="ButtonManager/Fade/fade_timer" to="." method="_on_fade_timer_timeout"]

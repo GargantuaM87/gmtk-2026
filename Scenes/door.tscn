@@ -112,6 +112,9 @@ animations = [{
 "speed": 23.0
 }]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_olaw7"]
+polygon = PackedVector2Array(-16, -32, 16, -32, 16, 32, -16, 32)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fp2xp"]
 size = Vector2(63.5, 66)
 
@@ -119,10 +122,14 @@ size = Vector2(63.5, 66)
 script = ExtResource("1_xqsd2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=99147496]
+light_mask = 1023
 z_index = -2
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_fp2xp")
 animation = &"open"
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="AnimatedSprite2D" unique_id=351642531]
+occluder = SubResource("OccluderPolygon2D_olaw7")
 
 [node name="Hitbox" type="StaticBody2D" parent="." unique_id=555135876]
 

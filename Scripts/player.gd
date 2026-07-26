@@ -17,7 +17,7 @@ signal interact
 
 const WALL_JUMP_HORIZONTAL_VELOCITY_TIME_WINDOW = 0.2
 const SPEED = 300.0
-const JUMP_VELOCITY = -600.0
+const JUMP_VELOCITY = -700.0
 const GRAVITY = 1000
 const HORIZONTAL_VELOCITY = 350
 const WALL_JUMP_HORIZONTAL_VELOCITY = 300
@@ -28,6 +28,7 @@ var attacking = false
 var play_jump = true # if jumping is available
 var jump_buffer : bool = false # jump buffering
 func _ready() -> void:
+	RenderingServer.set_default_clear_color(Color(0.0, 0.0, 0.0, 1.0))
 	pass
 var should_horizontal_speed
 var debug_flag_0 = false
