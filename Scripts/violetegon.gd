@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 @onready var hitbox : Area2D = $Hurtbox1
-@onready var detect_area : Area2D = $DetectArea
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var raycast: RayCast2D = $RayCast2D
 @onready var attack_box : CollisionShape2D = $Area2D/AttackHitbox
@@ -116,7 +115,8 @@ func can_see_player() -> bool:
 
 func attack() -> void:
 	sprite.play("attack")
-	if player.position.x > position.x:
+	var direction = player.global_position - global_position
+	if direction.x > 0:
 		attack_box_area.scale = Vector2(-1, 1)
 	else:
 		attack_box_area.scale = Vector2(1, 1)
