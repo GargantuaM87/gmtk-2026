@@ -4,8 +4,6 @@ extends CharacterBody2D
 @onready var coyote_timer : Timer = $CoyoteTimer
 @onready var master_timer: MasterTimer = $"../MasterTimer"
 
-
-
 @export var jump_buffer_timer : float = 0.1
 @export var coyote_time : float = 0.1
 @export var dash_time : float = 0.1
@@ -57,6 +55,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact"): # e by default pls
 		emit_signal("interact")
 	var dir := Input.get_axis("a_button", "d_button")
+	if attacking: dir = 0
 	if dir:
 		if wall_jump_horizontal_velocity_time_window > 0.0:
 			wall_jump_horizontal_velocity_time_window -= delta
@@ -66,7 +65,7 @@ func _physics_process(delta: float) -> void:
 		# Switching player direction
 		if dir > 0:
 			sprite.flip_h = false
-		else:
+		elif dir < 0:
 			sprite.flip_h = true
 	else:
 		if wall_jump_horizontal_velocity_time_window > 0.0:
@@ -81,18 +80,18 @@ func _physics_process(delta: float) -> void:
 		else:
 			jump_buffer = true
 			get_tree().create_timer(jump_buffer_timer).timeout.connect(on_jump_buffer_timeut)
-	if !is_on_floor():
-		velocity.y += GRAVITY * delta
-	if !is_on_floor() and !on_wall():
-		if(play_jump):
-			if coyote_timer.is_stopped():
-				coyote_timer.start(coyote_time)
-	else:
-		play_jump = true
-		coyote_timer.stop()
-		if jump_buffer:
-			jump()
-			jump_buffer = false
+	#if !is_on_floor():
+	#	velocity.y += GRAVITY * delta
+	#if !is_on_floor() and !on_wall():
+	#	if(play_jump):
+	#		if coyote_timer.is_stopped():
+	#			coyote_timer.start(coyote_time)
+	#else:
+	#	play_jump = true
+	#	coyote_timer.stop()
+	#	if jump_buffer:
+	#		jump()
+	#		jump_buffer = false
 		
 	# Movement Animation
 	if is_on_floor() and !attacking:
