@@ -45,7 +45,7 @@ func update_time(new_time : float):
 	time = new_time
 
 func increment_time(new_time : float):
-	time -= new_time
+	time += new_time
 
 func reset():
 	time = 60.0	

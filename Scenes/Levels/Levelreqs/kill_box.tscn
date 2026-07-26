@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dig6a263l41co"]
 
-[ext_resource type="Script" uid="uid://cx4ni0aps55mc" path="res://Scenes/Levels/kill_box.gd" id="1_ll2cy"]
+[ext_resource type="Script" uid="uid://cx4ni0aps55mc" path="res://Scripts/kill_box.gd" id="1_ll2cy"]
 
 [node name="KillBox" type="Area2D" unique_id=377849793]
 collision_mask = 255

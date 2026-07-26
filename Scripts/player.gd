@@ -6,6 +6,9 @@ signal interact
 @onready var attack_hitbox = $AttackArea/AttackHitBox
 @onready var coyote_timer : Timer = $CoyoteTimer
 @onready var master_timer: MasterTimer = $"../MasterTimer"
+@onready var hit_box : Area2D = $Hitbox
+
+
 @export_group("Player")
 @export var jump_buffer_timer : float = 0.1
 @export var coyote_time : float = 0.1
@@ -46,6 +49,7 @@ var slash_time = 0.5
 
 func _ready() -> void:
 	RenderingServer.set_default_clear_color(Color(0.0, 0.0, 0.0, 1.0))
+	hit_box.area_entered.connect(on_area_enterted)
 
 func on_wall() -> bool:
 	return $RightWall.is_colliding() or $LeftWall.is_colliding()
@@ -168,7 +172,7 @@ func handle_animations(dir : float) -> void:
 func spawn_slash() -> void:
 	var sword_slash_var : Node2D = SLASH_PRELOAD.instantiate()
 	var anim_p : AnimationPlayer = sword_slash_var.get_node("AnimationPlayer")
-	var slash_sprite : Sprite2D = sword_slash_var.get_node("Sprite2D")
+	#var slash_sprite : Sprite2D = sword_slash_var.get_node("Sprite2D")
 
 	sword_slash_var.global_position = global_position
 	anim_p.speed_scale = anim_p.get_animation("slash").length / slash_time
@@ -209,6 +213,14 @@ func on_hitbox_finished():
 
 func _on_jump_finished():
 	sprite.play("in_air")
+
+func on_area_enterted(node : Area2D) -> void:
+	if node.owner.is_in_group("enemies"):
+		deal_damage(node)
+
+func deal_damage(node : Area2D) -> void:
+	pass
+
 	
 func jump() -> void:
 	velocity.y = JUMP_VELOCITY

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://wo1dxs6gu7my" path="res://Scripts/enemy_1.gd" id="1_0a874"]
 [ext_resource type="Texture2D" uid="uid://cyn0k5u64blm7" path="res://Assets/player_placeholder.png" id="2_lssre"]
+[ext_resource type="Script" uid="uid://cm1kbsijbgyl" path="res://Scripts/detect_area.gd" id="3_lssre"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pra2e"]
 animations = [{
@@ -18,23 +19,28 @@ animations = [{
 radius = 20.0
 height = 40.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0omw4"]
-radius = 16.0
-height = 62.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_exf34"]
+radius = 180.14
 
 [node name="Enemy1" type="CharacterBody2D" unique_id=1646424994 groups=["enemies"]]
 collision_layer = 2
 script = ExtResource("1_0a874")
+health = null
 
-[node name="Node2D" type="Node2D" parent="." unique_id=1529704733]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D" unique_id=816334037]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=816334037]
 sprite_frames = SubResource("SpriteFrames_pra2e")
 
-[node name="Hurtbox1" type="Area2D" parent="Node2D" unique_id=1546152911]
+[node name="Hurtbox1" type="Area2D" parent="." unique_id=1546152911]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Hurtbox1" unique_id=1582177332]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox1" unique_id=1582177332]
 shape = SubResource("CapsuleShape2D_pra2e")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1534231485]
-shape = SubResource("CapsuleShape2D_0omw4")
+[node name="DetectArea" type="Area2D" parent="." unique_id=1022358576]
+collision_mask = 3
+script = ExtResource("3_lssre")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea" unique_id=126335635]
+shape = SubResource("CircleShape2D_exf34")
+
+[connection signal="area_entered" from="DetectArea" to="DetectArea" method="_on_area_entered"]
+[connection signal="detected_player" from="DetectArea" to="." method="_on_detect_area_detected_player"]
