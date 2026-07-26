@@ -27,8 +27,8 @@ signal interact
 @onready var atksfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 const WALL_JUMP_HORIZONTAL_VELOCITY_TIME_WINDOW = 0.2
+const JUMP_VELOCITY = -420.0 
 const SPEED = 300.0
-const JUMP_VELOCITY = -420.0
 const GRAVITY = 1000
 const HORIZONTAL_VELOCITY = 350
 const WALL_JUMP_HORIZONTAL_VELOCITY = 300
