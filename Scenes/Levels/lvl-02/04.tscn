@@ -2,6 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://b5km8n312ijbo" path="res://Scenes/Levels/Levelreqs/physics_tile.tscn" id="1_ob2vm"]
 [ext_resource type="PackedScene" uid="uid://d1mkcqu2mwef" path="res://Scenes/Levels/Levelreqs/openabledoor.tscn" id="2_ob2vm"]
+[ext_resource type="PackedScene" uid="uid://7hqfb8ija00e" path="res://Scenes/Enemies/skin_monster.tscn" id="3_6yj6j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4yqb"]
+size = Vector2(857.5, 424)
 
 [node name="01" type="Node2D" unique_id=293152980]
 
@@ -19,4 +23,14 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAIAAIAAGABAAEAAAAEAAE
 [node name="EntryPoint" type="Marker2D" parent="." unique_id=1053733247]
 
 [node name="Door" parent="." unique_id=1266661932 instance=ExtResource("2_ob2vm")]
-position = Vector2(1856, -16)
+position = Vector2(1872, -16)
+
+[node name="enemybox" type="Area2D" parent="Door" unique_id=1409916241]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/enemybox" unique_id=2064791138]
+position = Vector2(-451.25, -36)
+shape = SubResource("RectangleShape2D_p4yqb")
+
+[node name="SkinMonster" parent="." unique_id=660104151 instance=ExtResource("3_6yj6j")]
+position = Vector2(1632, 8)
+collision_mask = 255

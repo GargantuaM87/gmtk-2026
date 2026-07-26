@@ -250,7 +250,7 @@ height = 44.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_exf34"]
 
 [node name="SkinMonster" type="CharacterBody2D" unique_id=660104151 groups=["enemies"]]
-collision_layer = 2
+collision_layer = 3
 script = ExtResource("1_xwtw6")
 attack_range = 50.0
 

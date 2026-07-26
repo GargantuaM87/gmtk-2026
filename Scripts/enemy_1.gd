@@ -11,7 +11,7 @@ class_name Enemy extends CharacterBody2D
 
 enum States { IDLE, ATTACKING, MOVING }
 
-const SPEED = 300.0
+const SPEED = 200
 const JUMP_VELOCITY = -300
 const GRAVITY = 1000
 const HORIZONTAL_VELOCITY = 400

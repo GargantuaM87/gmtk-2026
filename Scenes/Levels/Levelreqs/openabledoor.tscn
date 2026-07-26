@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://b0ji3cu7aq0uy" path="res://Scenes/inthitbox.tscn" id="4_lby1x"]
 [ext_resource type="FontFile" uid="uid://mtdu0bf066ol" path="res://Assets/PixelifySans-VariableFont_wght.ttf" id="5_7c4t8"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_x570j"]
+font = ExtResource("5_7c4t8")
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_jb6ol"]
 atlas = ExtResource("2_awgsf")
 region = Rect2(192, 0, 64, 64)
@@ -127,12 +130,20 @@ font = ExtResource("5_7c4t8")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olaw7"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_x570j"]
-font = ExtResource("5_7c4t8")
-
 [node name="Door" type="Node2D" unique_id=1266661932]
 script = ExtResource("1_x570j")
 cost = 50
+
+[node name="Label" type="Label" parent="." unique_id=1585929735]
+offset_left = -72.0
+offset_top = 1.0
+offset_right = -32.0
+offset_bottom = 24.0
+text = "20s"
+label_settings = SubResource("LabelSettings_x570j")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=99147496]
 light_mask = 1023
@@ -175,18 +186,10 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Area2D" type="Area2D" parent="." unique_id=176836238]
+collision_layer = 15
+collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1482394252]
 shape = SubResource("RectangleShape2D_olaw7")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=310270486]
-
-[node name="Label" type="Label" parent="." unique_id=1585929735]
-offset_left = -72.0
-offset_top = 1.0
-offset_right = -32.0
-offset_bottom = 24.0
-text = "20s"
-label_settings = SubResource("LabelSettings_x570j")
-horizontal_alignment = 1
-vertical_alignment = 1

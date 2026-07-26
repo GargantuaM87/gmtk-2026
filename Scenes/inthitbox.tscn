@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b0ji3cu7aq0uy"]
 
 [ext_resource type="Script" uid="uid://beskl8b03mg64" path="res://Scenes/inthitbox.gd" id="1_1o4nc"]
-[ext_resource type="Script" uid="uid://ddsva8lwoepw" path="res://Scenes/area_2d.gd" id="2_g5v6m"]
+[ext_resource type="Script" uid="uid://ddsva8lwoepw" path="res://Scripts/area_2d.gd" id="2_g5v6m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olaw7"]
 size = Vector2(118, 96)

@@ -3,15 +3,19 @@
 [ext_resource type="PackedScene" uid="uid://b5km8n312ijbo" path="res://Scenes/Levels/Levelreqs/physics_tile.tscn" id="1_cw0j8"]
 [ext_resource type="PackedScene" uid="uid://d1mkcqu2mwef" path="res://Scenes/Levels/Levelreqs/openabledoor.tscn" id="2_wc463"]
 [ext_resource type="FontFile" uid="uid://mtdu0bf066ol" path="res://Assets/PixelifySans-VariableFont_wght.ttf" id="3_85oog"]
+[ext_resource type="PackedScene" uid="uid://7hqfb8ija00e" path="res://Scenes/Enemies/skin_monster.tscn" id="4_68030"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_68030"]
 line_spacing = -5.0
 font = ExtResource("3_85oog")
 
-[sub_resource type="LabelSettings" id="LabelSettings_85oog"]
-font = ExtResource("3_85oog")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olaw7"]
+size = Vector2(793, 344)
 
 [node name="01" type="Node2D" unique_id=293152980]
+
+[node name="SkinMonster" parent="." unique_id=660104151 instance=ExtResource("4_68030")]
+position = Vector2(464, -24)
 
 [node name="Label2" type="Label" parent="." unique_id=385576243]
 offset_left = 296.0
@@ -46,12 +50,9 @@ cost = 5
 [node name="Door3" parent="." unique_id=699451957 instance=ExtResource("2_wc463")]
 position = Vector2(768, -48)
 
-[node name="Label" type="Label" parent="Door3" unique_id=200443525]
-offset_left = -72.0
-offset_top = 1.0
-offset_right = -32.0
-offset_bottom = 24.0
-text = "20s"
-label_settings = SubResource("LabelSettings_85oog")
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="enemybox" type="Area2D" parent="Door3" unique_id=1488202433]
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door3/enemybox" unique_id=1688205173]
+position = Vector2(-372.5, -92)
+shape = SubResource("RectangleShape2D_olaw7")
