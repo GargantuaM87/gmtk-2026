@@ -1,16 +1,16 @@
 [gd_scene format=4 uid="uid://cple85fsif1dx"]
 
-[ext_resource type="Script" uid="uid://q73fks1msu6k" path="res://Scenes/interactable_hitbox.gd" id="1_jjvw5"]
+[ext_resource type="Script" uid="uid://q73fks1msu6k" path="res://Scripts/interactable_hitbox.gd" id="1_jjvw5"]
 [ext_resource type="PackedScene" uid="uid://c8qyr1ibghc4m" path="res://Scenes/master_timer.tscn" id="1_p8xcm"]
 [ext_resource type="PackedScene" uid="uid://cr3l7x8g53tq4" path="res://Scenes/player.tscn" id="1_pp2fj"]
 [ext_resource type="FontFile" uid="uid://mtdu0bf066ol" path="res://Assets/PixelifySans-VariableFont_wght.ttf" id="2_gdoci"]
 [ext_resource type="PackedScene" uid="uid://b5km8n312ijbo" path="res://Scenes/Levels/Levelreqs/physics_tile.tscn" id="2_owrcd"]
-[ext_resource type="Script" uid="uid://ddsva8lwoepw" path="res://Scenes/area_2d.gd" id="2_p8xcm"]
+[ext_resource type="Script" uid="uid://ddsva8lwoepw" path="res://Scripts/area_2d.gd" id="2_p8xcm"]
 [ext_resource type="AudioStream" uid="uid://dxq6sfc6t8oeu" path="res://Assets/sounds/hi guys.mp3" id="3_owrcd"]
 [ext_resource type="AudioStream" uid="uid://bghx5ydmxdhgb" path="res://Assets/sounds/sfx intor.mp3" id="7_8yvls"]
 [ext_resource type="PackedScene" uid="uid://dig6a263l41co" path="res://Scenes/Levels/Levelreqs/kill_box.tscn" id="8_lqx03"]
-[ext_resource type="Script" uid="uid://dvkpepurla5v0" path="res://Scenes/Levels/introseq.gd" id="10_lqx03"]
-[ext_resource type="Script" uid="uid://beos4pymc5cqm" path="res://Scenes/Levels/Levelreqs/levelManager.gd" id="10_y7udq"]
+[ext_resource type="Script" uid="uid://dvkpepurla5v0" path="res://Scripts/introseq.gd" id="10_lqx03"]
+[ext_resource type="Script" uid="uid://beos4pymc5cqm" path="res://Scripts/levelManager.gd" id="10_y7udq"]
 [ext_resource type="PackedScene" uid="uid://dfvp0gt1v1nbb" path="res://Scenes/Levels/lvl-01/01.tscn" id="11_h2blv"]
 [ext_resource type="PackedScene" uid="uid://dmklf7r45myap" path="res://Scenes/door.tscn" id="11_lqx03"]
 [ext_resource type="PackedScene" uid="uid://cgkgv4jq54hxq" path="res://Scenes/Levels/lvl-01/02.tscn" id="12_5qs7v"]
@@ -73,6 +73,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." unique_id=201653633 instance=ExtResource("1_pp2fj")]
 position = Vector2(-333, 114)
+attack_cooldown = 0.5
 
 [node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=4456818]
 position = Vector2(3.0517578e-05, 0)

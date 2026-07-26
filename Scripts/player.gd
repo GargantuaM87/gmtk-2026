@@ -168,7 +168,7 @@ func handle_animations(dir : float) -> void:
 func spawn_slash() -> void:
 	var sword_slash_var : Node2D = SLASH_PRELOAD.instantiate()
 	var anim_p : AnimationPlayer = sword_slash_var.get_node("AnimationPlayer")
-	var slash_sprite : Sprite2D = sword_slash_var.get_node("Sprite2D")
+	#var slash_sprite : Sprite2D = sword_slash_var.get_node("Sprite2D")
 
 	sword_slash_var.global_position = global_position
 	anim_p.speed_scale = anim_p.get_animation("slash").length / slash_time
