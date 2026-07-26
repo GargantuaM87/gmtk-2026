@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b5km8n312ijbo" path="res://Scenes/Levels/Levelreqs/physics_tile.tscn" id="3_v8iqp"]
 [ext_resource type="PackedScene" uid="uid://c8qyr1ibghc4m" path="res://Scenes/master_timer.tscn" id="4_cv17v"]
 [ext_resource type="PackedScene" uid="uid://7hqfb8ija00e" path="res://Scenes/Enemies/skin_monster.tscn" id="4_v8iqp"]
+[ext_resource type="PackedScene" uid="uid://dx4n6jjlyr1h6" path="res://Scenes/Enemies/violetegon.tscn" id="5_v8iqp"]
 
 [node name="Node2D" type="Node2D" unique_id=1036307500]
 
@@ -20,4 +21,7 @@ tile_map_data = PackedByteArray("AAAQAA8AAAAPAAAAAAAQABAAAAAPAAEAAAARAA8AAAAQAAA
 [node name="MasterTimer" parent="." unique_id=524583231 instance=ExtResource("4_cv17v")]
 
 [node name="SkinMonster" parent="." unique_id=660104151 instance=ExtResource("4_v8iqp")]
-position = Vector2(913, 473)
+position = Vector2(933, -5)
+
+[node name="Violetegon" parent="." unique_id=1008581491 instance=ExtResource("5_v8iqp")]
+position = Vector2(1811, 435)

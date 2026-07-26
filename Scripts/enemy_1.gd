@@ -4,6 +4,8 @@ class_name Enemy extends CharacterBody2D
 @onready var hitbox : Area2D = $Hurtbox1
 @onready var detect_area : Area2D = $DetectArea
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
+@onready var timer : Timer = $Timer
+@onready var raycast : RayCast2D = $Raycast2D
 
 @export var health : float = 4
 @export var chase_range : float = 250
