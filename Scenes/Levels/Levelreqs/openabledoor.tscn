@@ -127,6 +127,9 @@ font = ExtResource("5_7c4t8")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olaw7"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_x570j"]
+font = ExtResource("5_7c4t8")
+
 [node name="Door" type="Node2D" unique_id=1266661932]
 script = ExtResource("1_x570j")
 cost = 50
@@ -178,13 +181,12 @@ shape = SubResource("RectangleShape2D_olaw7")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=310270486]
 
-[node name="Label" type="Label" parent="." unique_id=1203420488]
-texture_filter = 1
-offset_left = -88.0
-offset_top = 5.0
-offset_right = -11.0
-offset_bottom = 55.0
+[node name="Label" type="Label" parent="." unique_id=1585929735]
+offset_left = -72.0
+offset_top = 1.0
+offset_right = -32.0
+offset_bottom = 24.0
 text = "20s"
-label_settings = SubResource("LabelSettings_gal8m")
+label_settings = SubResource("LabelSettings_x570j")
 horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
+vertical_alignment = 1

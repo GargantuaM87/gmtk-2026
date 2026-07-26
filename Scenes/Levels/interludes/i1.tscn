@@ -8,6 +8,9 @@
 line_spacing = -5.0
 font = ExtResource("3_85oog")
 
+[sub_resource type="LabelSettings" id="LabelSettings_85oog"]
+font = ExtResource("3_85oog")
+
 [node name="01" type="Node2D" unique_id=293152980]
 
 [node name="Label2" type="Label" parent="." unique_id=385576243]
@@ -42,3 +45,13 @@ cost = 5
 
 [node name="Door3" parent="." unique_id=699451957 instance=ExtResource("2_wc463")]
 position = Vector2(768, -48)
+
+[node name="Label" type="Label" parent="Door3" unique_id=200443525]
+offset_left = -72.0
+offset_top = 1.0
+offset_right = -32.0
+offset_bottom = 24.0
+text = "20s"
+label_settings = SubResource("LabelSettings_85oog")
+horizontal_alignment = 1
+vertical_alignment = 1
