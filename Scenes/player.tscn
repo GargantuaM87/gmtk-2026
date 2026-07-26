@@ -741,7 +741,6 @@ shape = SubResource("RectangleShape2D_exf34")
 disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1166195807]
-modulate = Color(1, 0.26666668, 0.11372549, 1)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_afs4w")
 animation = &"jumping"
