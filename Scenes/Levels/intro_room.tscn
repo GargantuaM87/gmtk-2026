@@ -1,10 +1,6 @@
 [gd_scene format=4 uid="uid://cple85fsif1dx"]
 
-<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://q73fks1msu6k" path="res://Scenes/buttoninteractable.gd" id="1_jjvw5"]
-=======
-[ext_resource type="Script" uid="uid://q73fks1msu6k" path="res://Scripts/interactable_hitbox.gd" id="1_jjvw5"]
->>>>>>> e7fa0368a890496e259789cbf87422822d027045
 [ext_resource type="PackedScene" uid="uid://c8qyr1ibghc4m" path="res://Scenes/master_timer.tscn" id="1_p8xcm"]
 [ext_resource type="PackedScene" uid="uid://cr3l7x8g53tq4" path="res://Scenes/player.tscn" id="1_pp2fj"]
 [ext_resource type="FontFile" uid="uid://mtdu0bf066ol" path="res://Assets/PixelifySans-VariableFont_wght.ttf" id="2_gdoci"]
@@ -16,7 +12,7 @@
 [ext_resource type="Script" uid="uid://beos4pymc5cqm" path="res://Scripts/levelManager.gd" id="10_y7udq"]
 [ext_resource type="PackedScene" uid="uid://dfvp0gt1v1nbb" path="res://Scenes/Levels/lvl-01/01.tscn" id="11_h2blv"]
 [ext_resource type="Script" uid="uid://d0u18ftdvtg3r" path="res://Scenes/Levels/Levelreqs/lvlbundle.gd" id="11_jlsw1"]
-[ext_resource type="PackedScene" uid="uid://cyqyxht1maa04" path="res://Scenes/door.tscn" id="11_lqx03"]
+[ext_resource type="PackedScene" uid="uid://dmklf7r45myap" path="res://Scenes/door.tscn" id="11_lqx03"]
 [ext_resource type="PackedScene" uid="uid://cgkgv4jq54hxq" path="res://Scenes/Levels/lvl-01/02.tscn" id="12_5qs7v"]
 [ext_resource type="PackedScene" uid="uid://dadmohu3fl2jc" path="res://Scenes/Levels/lvl-01/03.tscn" id="13_n10wv"]
 [ext_resource type="PackedScene" uid="uid://dxohjbhqvw5wi" path="res://Scenes/Levels/lvl-01/05.tscn" id="14_eb5ma"]
@@ -46,17 +42,17 @@ fill = 1
 fill_from = Vector2(0.5231214, 0.50578034)
 fill_to = Vector2(-0.2, 0)
 
-[sub_resource type="Resource" id="Resource_lqx03"]
-script = ExtResource("11_jlsw1")
-rooms = 3
-roomarray = Array[PackedScene]([ExtResource("11_h2blv"), ExtResource("12_5qs7v"), ExtResource("13_n10wv"), ExtResource("14_eb5ma"), ExtResource("15_7sif0")])
-metadata/_custom_type_script = "uid://d0u18ftdvtg3r"
-
 [sub_resource type="Resource" id="Resource_wc463"]
 script = ExtResource("11_jlsw1")
 title = "i1"
 rooms = 1
 roomarray = Array[PackedScene]([ExtResource("16_jlsw1")])
+metadata/_custom_type_script = "uid://d0u18ftdvtg3r"
+
+[sub_resource type="Resource" id="Resource_lqx03"]
+script = ExtResource("11_jlsw1")
+rooms = 3
+roomarray = Array[PackedScene]([ExtResource("11_h2blv"), ExtResource("12_5qs7v"), ExtResource("13_n10wv"), ExtResource("14_eb5ma"), ExtResource("15_7sif0")])
 metadata/_custom_type_script = "uid://d0u18ftdvtg3r"
 
 [sub_resource type="Resource" id="Resource_8yvls"]
@@ -134,7 +130,7 @@ bus = &"BGM"
 [node name="RoomManager" type="Marker2D" parent="." unique_id=973738065]
 position = Vector2(352, 160)
 script = ExtResource("10_y7udq")
-scenes = Array[ExtResource("11_jlsw1")]([SubResource("Resource_lqx03"), SubResource("Resource_wc463"), SubResource("Resource_8yvls")])
+scenes = Array[ExtResource("11_jlsw1")]([SubResource("Resource_wc463"), SubResource("Resource_lqx03"), SubResource("Resource_8yvls")])
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1689887907]
 color = Color(0.26536041, 0.26536056, 0.26536044, 1)

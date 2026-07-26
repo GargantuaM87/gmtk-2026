@@ -120,7 +120,7 @@ polygon = PackedVector2Array(-16, -32, 16, -32, 16, 32, -16, 32)
 size = Vector2(63.5, 66)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ooald"]
-polygon = PackedVector2Array(-124.31683, -31.661896, -60.316833, -31.661896, -60.316833, 96.338104, -124.31683, 96.338104)
+polygon = PackedVector2Array(-123.31683, -30.661896, -60.316833, -31.661896, -60.316833, 96.338104, -123.31683, 96.338104)
 
 [node name="Door" type="Node2D" unique_id=1266661932]
 script = ExtResource("1_fahql")

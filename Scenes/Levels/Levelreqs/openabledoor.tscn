@@ -129,6 +129,7 @@ font = ExtResource("5_7c4t8")
 
 [node name="Door" type="Node2D" unique_id=1266661932]
 script = ExtResource("1_x570j")
+cost = 50
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=99147496]
 light_mask = 1023
@@ -164,9 +165,8 @@ offset_left = -38.0
 offset_top = -51.0
 offset_right = 39.0
 offset_bottom = -1.0
-text = "[$15s]
-v
-"
+text = "open
+v"
 label_settings = SubResource("LabelSettings_gal8m")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -175,3 +175,16 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1482394252]
 shape = SubResource("RectangleShape2D_olaw7")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=310270486]
+
+[node name="Label" type="Label" parent="." unique_id=1203420488]
+texture_filter = 1
+offset_left = -88.0
+offset_top = 5.0
+offset_right = -11.0
+offset_bottom = 55.0
+text = "20s"
+label_settings = SubResource("LabelSettings_gal8m")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true

@@ -57,3 +57,5 @@ func stop():
 func kill():
 	print("killing player")
 	rtscale = killtimescale
+func damage(val: float):
+	time -= val

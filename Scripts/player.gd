@@ -158,7 +158,10 @@ func handle_animations(dir : float) -> void:
 	if !is_on_floor() and Input.is_action_just_pressed("mouse_left") and jump_attacks > 0:
 		sprite.play("jump_attack")
 		atksfx.playSFX("air_miss")
-		
+		if last_dir == null:
+			last_dir = 1
+			
+			
 		velocity.y = 0
 		velocity.x += last_dir * dash_speed
 		attacking = true
@@ -221,6 +224,8 @@ func on_area_enterted(node : Area2D) -> void:
 func deal_damage(node : Area2D) -> void:
 	pass
 
+func dmg(val: float):
+	master_timer.damage(val)
 	
 func jump() -> void:
 	velocity.y = JUMP_VELOCITY
