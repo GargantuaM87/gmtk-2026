@@ -243,11 +243,13 @@ height = 44.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5b7u5"]
 
 [node name="Boss" type="CharacterBody2D" unique_id=575967605]
+scale = Vector2(10, 10)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=581372099]
 sprite_frames = SubResource("SpriteFrames_qwse2")
-animation = &"open_idle"
-frame_progress = 0.9359874
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.975813
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=509296376]
 shape = SubResource("CapsuleShape2D_yx5v8")

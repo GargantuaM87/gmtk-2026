@@ -3,11 +3,13 @@ extends CharacterBody2D
 signal interact
 
 @onready var sprite = $AnimatedSprite2D
+@onready var attack_area : Area2D = $AttackArea
 @onready var attack_hitbox = $AttackArea/AttackHitBox
 @onready var coyote_timer : Timer = $CoyoteTimer
 @onready var master_timer: MasterTimer = $"../MasterTimer"
 @onready var hit_box : Area2D = $Hitbox
 @onready var secondsminus: Label = $Label
+@onready var atksfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 
 @export_group("Player")
@@ -25,7 +27,7 @@ signal interact
 @export var jump_attacks : float = 1
 @export_group("Misc")
 @export var wall_jump_horizontal_velocity_time_window : float = 0.0
-@onready var atksfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
 
 const WALL_JUMP_HORIZONTAL_VELOCITY_TIME_WINDOW = 0.2
 const JUMP_VELOCITY = -420.0 
@@ -154,7 +156,10 @@ func handle_animations(dir : float) -> void:
 	# Attack Animation on ground
 	if is_on_floor() and Input.is_action_just_pressed("mouse_left") and can_attack:
 		sprite.play("attack")
-		atksfx.playSFX("swing_miss")
+		if attack_area.area_entered:
+			atksfx.playSFX("swing_hit_flesh")
+		else:
+			atksfx.playSFX("swing_miss")
 		spawn_slash()
 		velocity.x = 0
 		attacking = true

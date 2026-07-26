@@ -4,7 +4,7 @@ class_name Enemy extends CharacterBody2D
 @onready var hitbox : Area2D = $Hurtbox1
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var timer : Timer = $Timer
-@onready var raycast : RayCast2D = $AnimatedSprite2D/Raycast2D
+@onready var raycast : RayCast2D = $AnimatedSprite2D/RayCast2D
 
 @export var health : float = 4
 @export var chase_range : float = 250
@@ -22,8 +22,8 @@ var offset_from_player : Vector2 = Vector2(50, 50)
 var state : States = States.IDLE
 var target : Vector2 
 var distance : float
-
 var player : CharacterBody2D = null
+
 
 func _ready() -> void:
 	add_to_group("enemies")
