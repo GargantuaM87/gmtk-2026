@@ -35,6 +35,8 @@ project/assembly_name="GMTK2026"
 stopwatch=""
 enemies=""
 player=""
+bgm_main=""
+timer=""
 
 [input]
 

@@ -5,6 +5,12 @@ var rng = RandomNumberGenerator.new()
 
 
 func show_text(text: String, start_pos: Vector2):
+	if text.contains("+"):
+		label.add_theme_color_override("font_color", Color.GREEN)
+	elif text.contains("-"):
+		label.add_theme_color_override("font_color", Color.RED)
+	else:
+		label.add_theme_color_override("font_color", Color.GHOST_WHITE)
 	label.text = text
 	position = start_pos
 	

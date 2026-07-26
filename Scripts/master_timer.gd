@@ -1,7 +1,7 @@
 extends Node
 class_name MasterTimer
 
-@export var time_amount = 600.0
+@export var time_amount = 180.0
 @onready var label : Label = $CanvasLayer/ClockTime
 @export var killtimescale = 50.0
 @export var timescale = 1.0
@@ -24,6 +24,7 @@ func _process(delta: float) -> void:
 	if time < 0:
 		time = 0
 		stop()
+		get_tree().reload_current_scene()
 	update_stopwatch_label()
 	
 

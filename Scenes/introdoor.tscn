@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dvg4a2h5eq821"]
 
-[ext_resource type="Script" path="res://Scenes/newdoor.gd" id="1_fahql"]
+[ext_resource type="Script" uid="uid://cjpcnj3qtxond" path="res://Scenes/introdoor.gd" id="1_pmgsm"]
 [ext_resource type="Texture2D" uid="uid://bvut1qe7mijxw" path="res://Assets/door-spritesheet (1).png" id="2_lh3f8"]
 [ext_resource type="AudioStream" uid="uid://cfcurgiswdcs2" path="res://Assets/sounds/sfx/doorsfx.mp3" id="3_fahql"]
 
@@ -119,11 +119,8 @@ polygon = PackedVector2Array(-16, -32, 16, -32, 16, 32, -16, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fp2xp"]
 size = Vector2(63.5, 66)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ooald"]
-polygon = PackedVector2Array(-123.31683, -30.661896, -60.316833, -31.661896, -60.316833, 96.338104, -123.31683, 96.338104)
-
 [node name="Door" type="Node2D" unique_id=1266661932]
-script = ExtResource("1_fahql")
+script = ExtResource("1_pmgsm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=99147496]
 light_mask = 1023
@@ -149,8 +146,3 @@ shape = SubResource("RectangleShape2D_fp2xp")
 stream = ExtResource("3_fahql")
 volume_db = -7.87
 bus = &"SFX"
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1952311354]
-position = Vector2(92.31683, -32.338104)
-occluder = SubResource("OccluderPolygon2D_ooald")
-occluder_light_mask = 1023

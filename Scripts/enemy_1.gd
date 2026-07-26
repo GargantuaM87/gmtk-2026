@@ -16,7 +16,7 @@ enum States { IDLE, ATTACKING, MOVING }
 const SPEED = 200
 const JUMP_VELOCITY = -300
 const GRAVITY = 1000
-const HORIZONTAL_VELOCITY = 400
+const HORIZONTAL_VELOCITY = 299
 
 var last_position = Vector2(0,0)
 var offset_from_player : Vector2 = Vector2(50, 50)
@@ -72,6 +72,8 @@ func take_damage():
 	var tween = get_tree().create_tween()
 	tween.tween_method(set_shader_blink_intensity, 1.0, 0.0, 0.5)
 	if health <= 0:
+		player = get_tree().get_first_node_in_group("player")
+		player.dmg(-10)
 		queue_free()
 
 func calc_state() -> void:
