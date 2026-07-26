@@ -67,6 +67,8 @@ func on_hitbox_entered(node : Node2D) -> void:
 	
 func take_damage():
 	health -= 1
+	var tween = get_tree().create_tween()
+	tween.tween_method(set_shader_blink_intensity, 1.0, 0.0, 0.5)
 	if health <= 0:
 		queue_free()
 
@@ -77,3 +79,7 @@ func calc_state() -> void:
 		state = States.IDLE
 	elif distance <= attack_range:
 		state = States.ATTACKING
+	
+
+func set_shader_blink_intensity(new_value : float):
+	sprite.material.set_shader_parameter("blink_intensity", new_value)

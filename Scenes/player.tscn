@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b0254y63d0k3" path="res://Assets/PlayerSheets/jump_sheet.png" id="3_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://bhd5eeke5umfd" path="res://Assets/PlayerSheets/run_sheet.png" id="4_fkybt"]
 [ext_resource type="Script" uid="uid://dtyid0ttphg2i" path="res://Scripts/attack_area.gd" id="5_f1ek2"]
+[ext_resource type="Shader" uid="uid://c0rywt5rtdhpp" path="res://Assets/Shaders/blink.gdshader" id="5_fd4e3"]
 [ext_resource type="PackedScene" uid="uid://c3hlprc7fvtkq" path="res://Scenes/text_handler.tscn" id="5_fkybt"]
 [ext_resource type="Shader" uid="uid://bnclfpwtus0nf" path="res://Assets/VFX/01.gdshader" id="6_8erm5"]
 [ext_resource type="Texture2D" uid="uid://d2a640ul40kkf" path="res://Assets/PlayerSheets/jump_attack_sheet.png" id="9_gymyn"]
@@ -28,6 +29,12 @@ shader_parameter/outer_radius = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_exf34"]
 size = Vector2(37, 57)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5xwmx"]
+resource_local_to_scene = true
+shader = ExtResource("5_fd4e3")
+shader_parameter/blinkColor = Color(1, 1, 1, 1)
+shader_parameter/blink_intensity = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yh6i2"]
 atlas = ExtResource("2_x3wgy")
@@ -741,6 +748,7 @@ shape = SubResource("RectangleShape2D_exf34")
 disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1166195807]
+material = SubResource("ShaderMaterial_5xwmx")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_afs4w")
 animation = &"jumping"
