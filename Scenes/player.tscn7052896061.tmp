@@ -701,6 +701,7 @@ stream_0/stream = ExtResource("14_h4iuc")
 [node name="Player" type="CharacterBody2D" unique_id=201653633 groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_6t5aa")
+attack_cooldown = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=108080184]
 shape = SubResource("CapsuleShape2D_0omw4")

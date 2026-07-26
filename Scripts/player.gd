@@ -8,7 +8,8 @@ extends CharacterBody2D
 @export var coyote_time : float = 0.1
 @export var dash_time : float = 0.1
 @export var hitbox_time : float = 0.2
-@export var attack_cooldown : float = 0.3
+@export var attack_cooldown : float = 0.35
+@export var movement_lock_time := 0.20
 @export var jump_attacks : float = 1
 signal interact
 @export var wall_jump_horizontal_velocity_time_window : float = 0.0
@@ -16,7 +17,7 @@ signal interact
 
 const WALL_JUMP_HORIZONTAL_VELOCITY_TIME_WINDOW = 0.2
 const SPEED = 300.0
-const JUMP_VELOCITY = -500.0
+const JUMP_VELOCITY = -420.0
 const GRAVITY = 1000
 const HORIZONTAL_VELOCITY = 350
 const WALL_JUMP_HORIZONTAL_VELOCITY = 300
@@ -24,6 +25,7 @@ const WALL_JUMP_HORIZONTAL_VELOCITY = 300
 # if the player is ccurently attacking, creates a lock to prevent other animations from override
 var can_attack = true
 var attacking = false 
+var movement_locked = false
 var play_jump = true # if jumping is available
 var jump_buffer : bool = false # jump buffering
 func _ready() -> void:
@@ -38,13 +40,13 @@ func on_wall() -> bool:
 
 
 func _physics_process(delta: float) -> void:
-	if not is_on_floor() and !attacking:
+	if not is_on_floor() and !movement_locked:
 		velocity.y += GRAVITY * delta
 		if(play_jump):
 			if coyote_timer.is_stopped():
 				coyote_timer.start(coyote_time)
 			#get_tree().create_timer(coyote_time).timeout.connect(coyote_timeout)
-	elif is_on_floor() and !attacking:
+	elif is_on_floor() and !movement_locked:
 		play_jump = true
 		jump_attacks = 1
 		coyote_timer.stop()
@@ -56,7 +58,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact"): # e by default pls
 		emit_signal("interact")
 	var dir := Input.get_axis("a_button", "d_button")
-	if attacking: dir = 0
+	if movement_locked: dir = 0
 	if dir:
 		if wall_jump_horizontal_velocity_time_window > 0.0:
 			wall_jump_horizontal_velocity_time_window -= delta
@@ -76,7 +78,10 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 		#Jump Action
 	if Input.is_action_just_pressed("space"):
-		if play_jump:
+		if movement_locked:
+			jump_buffer = true
+			get_tree().create_timer(jump_buffer_timer).timeout.connect(on_jump_buffer_timeut)
+		elif play_jump:
 			jump()
 		else:
 			jump_buffer = true
@@ -113,6 +118,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 		
 		attacking = true
+		movement_locked = true
 		can_attack = false
 		attack_hitbox.disabled = false
 		attack_timers()
@@ -123,6 +129,7 @@ func _physics_process(delta: float) -> void:
 		
 		velocity.y = 0
 		attacking = true
+		movement_locked = true
 		can_attack = false
 		jump_attacks = 0
 		attack_hitbox.disabled = false
@@ -137,7 +144,15 @@ func attack_timers() -> void:
 	get_tree().create_timer(attack_cooldown).timeout.connect(_on_attack_finished)
 	# Timer for when the box collider will be disabled again
 	get_tree().create_timer(hitbox_time).timeout.connect(on_hitbox_finished)
+	# Timer before player is allowed to move again
+	get_tree().create_timer(movement_lock_time).timeout.connect(_unlock_movement)
 
+func _unlock_movement():
+	movement_locked = false
+
+	if jump_buffer and is_on_floor():
+		jump()
+		jump_buffer = false
 	
 func _on_attack_finished():
 	attacking = false
@@ -163,6 +178,8 @@ func jump() -> void:
 			should_horizontal_speed = velocity.x
 			sprite.flip_h = true
 	play_jump = false
+	print("Jump velocity:", velocity.y)
+	velocity.y = JUMP_VELOCITY
 
 func coyote_timeout() -> void:
 	play_jump = false

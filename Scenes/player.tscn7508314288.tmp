@@ -701,6 +701,14 @@ stream_0/stream = ExtResource("14_h4iuc")
 [node name="Player" type="CharacterBody2D" unique_id=201653633 groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_6t5aa")
+jump_buffer_timer = null
+coyote_time = null
+dash_time = null
+hitbox_time = null
+attack_cooldown = null
+movement_lock_time = null
+jump_attacks = null
+wall_jump_horizontal_velocity_time_window = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=108080184]
 shape = SubResource("CapsuleShape2D_0omw4")

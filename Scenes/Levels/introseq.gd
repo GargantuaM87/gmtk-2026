@@ -4,10 +4,10 @@ extends Label
 @onready var introseq: Label = $"."
 
 func _ready() -> void:
-	play_typewriter("-$  ./sub19/failsafes/detonate.sh
-> detonation sequence activated
+	play_typewriter("-$  /sub19/failsafes/detonate.exe
+> User Authenticated. Sequence active
 > FATAL ERR: OVERRIDE PROTECTION 
-STILL IN PLACE
+IN PLACE
 
 > ERR : REQUIRES USER INPUT...")
 	while true:
