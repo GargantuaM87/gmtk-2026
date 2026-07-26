@@ -19,7 +19,7 @@ var bodies_inside: Array[Node] = []
 var openable: bool = true
 var label: Label
 func _ready() -> void:
-	label  = $Label
+	label = $Label
 	if enemybox:
 		enemybox.body_entered.connect(_on_body_entered)
 		enemybox.body_exited.connect(_on_body_exited)
