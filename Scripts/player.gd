@@ -234,6 +234,7 @@ func on_area_enterted(node : Area2D) -> void:
 		get_tree().current_scene.add_child(floating)
 		dmg(5)
 		floating.show_text("-5s", position - Vector2(0, 65))
+		sfx("dmg")
 
 func deal_damage(node : Area2D) -> void:
 	var tween = get_tree().create_tween()
@@ -286,5 +287,5 @@ func death(): #When the player actually dies
 	print('hi')
 
 func sfx(name):
-	atksfx.playsfx(name)
+	atksfx.playSFX(name)
 	

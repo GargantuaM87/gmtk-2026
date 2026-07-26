@@ -72,6 +72,8 @@ func take_damage():
 	var tween = get_tree().create_tween()
 	tween.tween_method(set_shader_blink_intensity, 1.0, 0.0, 0.5)
 	if health <= 0:
+		player = get_tree().get_first_node_in_group("player")
+		player.dmg(-10)
 		queue_free()
 
 func calc_state() -> void:
