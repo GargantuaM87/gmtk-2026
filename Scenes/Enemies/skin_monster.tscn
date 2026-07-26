@@ -248,6 +248,7 @@ radius = 18.0
 height = 44.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_exf34"]
+size = Vector2(25, 40)
 
 [node name="SkinMonster" type="CharacterBody2D" unique_id=660104151 groups=["enemies"]]
 collision_layer = 3
@@ -275,5 +276,5 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="AttackHitbox" type="CollisionShape2D" parent="Area2D" unique_id=1331020949]
-position = Vector2(-29, -2)
+position = Vector2(-31.5, -12)
 shape = SubResource("RectangleShape2D_exf34")

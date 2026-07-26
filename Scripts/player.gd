@@ -45,6 +45,9 @@ var should_horizontal_speed
 var debug_flag_0 = false
 var last_dir = 0 # for saving the last value that direction was in, without storing 0
 var slash_time = 0.5
+@export var knockback_decay_time: float = 0.3
+var knockback_velocity: Vector2 = Vector2.ZERO
+var knockback_tween: Tween
 
 
 func _ready() -> void:
@@ -122,8 +125,10 @@ func _physics_process(delta: float) -> void:
 		if jump_buffer:
 			jump()
 			jump_buffer = false
-		
+	velocity += knockback_velocity
 	handle_animations(dir)
+	
+
 
 	move_and_slide()
 
@@ -220,6 +225,8 @@ func _on_jump_finished():
 func on_area_enterted(node : Area2D) -> void:
 	if node.owner.is_in_group("enemies"):
 		deal_damage(node)
+		dmg(5)
+		apply_knockback(Vector2(0,-1), 50)
 
 func deal_damage(node : Area2D) -> void:
 	var tween = get_tree().create_tween()
@@ -247,7 +254,17 @@ func jump() -> void:
 	play_jump = false
 	print("Jump velocity:", velocity.y)
 	velocity.y = JUMP_VELOCITY
+func apply_knockback(direction: Vector2, strength: float) -> void:
+	knockback_velocity = direction.normalized() * strength
 
+	if knockback_tween and knockback_tween.is_valid():
+		knockback_tween.kill()
+
+	knockback_tween = create_tween()
+	knockback_tween.tween_property(self, "knockback_velocity", Vector2.ZERO, knockback_decay_time)\
+		.set_trans(Tween.TRANS_QUAD)\
+		.set_ease(Tween.EASE_OUT)
+	
 func coyote_timeout() -> void:
 	play_jump = false
 

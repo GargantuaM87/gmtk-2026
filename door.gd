@@ -28,13 +28,16 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
     if enemybox and not was_cleared:
         _poll_enemies()
+var has_seen_enemies: bool = false
 
 func _poll_enemies() -> void:
     var count := 0
     for body in enemybox.get_overlapping_bodies():
         if is_instance_valid(body) and body.is_in_group("enemies"):
             count += 1
-    if count == 0:
+    if count > 0:
+        has_seen_enemies = true
+    if count == 0 and has_seen_enemies:
         _on_all_enemies_cleared()
 
 func _on_all_enemies_cleared() -> void:

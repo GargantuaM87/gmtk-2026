@@ -14,7 +14,7 @@ enum States { IDLE, ATTACKING, MOVING }
 const SPEED = 200
 const JUMP_VELOCITY = -300
 const GRAVITY = 1000
-const HORIZONTAL_VELOCITY = 400
+const HORIZONTAL_VELOCITY = 299
 
 var last_position = Vector2(0,0)
 var offset_from_player : Vector2 = Vector2(50, 50)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dvg4a2h5eq821"]
 
-[ext_resource type="Script" path="res://Scenes/newdoor.gd" id="1_fahql"]
+[ext_resource type="Script" uid="uid://cjpcnj3qtxond" path="res://Scenes/introdoor.gd" id="1_pmgsm"]
 [ext_resource type="Texture2D" uid="uid://bvut1qe7mijxw" path="res://Assets/door-spritesheet (1).png" id="2_lh3f8"]
 [ext_resource type="AudioStream" uid="uid://cfcurgiswdcs2" path="res://Assets/sounds/sfx/doorsfx.mp3" id="3_fahql"]
 
@@ -123,7 +123,7 @@ size = Vector2(63.5, 66)
 polygon = PackedVector2Array(-123.31683, -30.661896, -60.316833, -31.661896, -60.316833, 96.338104, -123.31683, 96.338104)
 
 [node name="Door" type="Node2D" unique_id=1266661932]
-script = ExtResource("1_fahql")
+script = ExtResource("1_pmgsm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=99147496]
 light_mask = 1023
