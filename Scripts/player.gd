@@ -29,6 +29,8 @@ const JUMP_VELOCITY = -420.0
 const GRAVITY = 1000
 const HORIZONTAL_VELOCITY = 350
 const WALL_JUMP_HORIZONTAL_VELOCITY = 300
+# Resources
+const SLASH_PRELOAD = preload("res://Scenes/sword_slash.tscn")
 
 # if the player is ccurently attacking, creates a lock to prevent other animations from override
 var can_attack = true
@@ -39,6 +41,7 @@ var jump_buffer : bool = false # jump buffering
 var should_horizontal_speed
 var debug_flag_0 = false
 var last_dir = 0 # for saving the last value that direction was in, without storing 0
+var slash_time = 0.5
 
 
 func _ready() -> void:
@@ -104,21 +107,19 @@ func _physics_process(delta: float) -> void:
 		else:
 			jump_buffer = true
 			get_tree().create_timer(jump_buffer_timer).timeout.connect(on_jump_buffer_timeut)
-	#if !is_on_floor():
-	#	velocity.y += GRAVITY * delta
-	#if !is_on_floor() and !on_wall():
-	#	if(play_jump):
-	#		if coyote_timer.is_stopped():
-	#			coyote_timer.start(coyote_time)
-	#else:
-	#	play_jump = true
-	#	coyote_timer.stop()
-	#	if jump_buffer:
-	#		jump()
-	#		jump_buffer = false
+	
+	if !is_on_floor() and !on_wall():
+		if(play_jump):
+			if coyote_timer.is_stopped():
+				coyote_timer.start(coyote_time)
+	else:
+		play_jump = true
+		coyote_timer.stop()
+		if jump_buffer:
+			jump()
+			jump_buffer = false
 		
 	handle_animations(dir)
-	print(last_dir)
 
 	move_and_slide()
 
@@ -142,6 +143,7 @@ func handle_animations(dir : float) -> void:
 	if is_on_floor() and Input.is_action_just_pressed("mouse_left") and can_attack:
 		sprite.play("attack")
 		atksfx.playSFX("swing_miss")
+		spawn_slash()
 		velocity.x = 0
 		attacking = true
 		movement_locked = true
@@ -162,6 +164,16 @@ func handle_animations(dir : float) -> void:
 		attack_hitbox.disabled = false
 		if not sprite.animation_finished.is_connected(attack_jump_timers):
 			sprite.animation_finished.connect(attack_jump_timers, CONNECT_ONE_SHOT)
+
+func spawn_slash() -> void:
+	var sword_slash_var : Node2D = SLASH_PRELOAD.instantiate()
+	var anim_p : AnimationPlayer = sword_slash_var.get_node("AnimationPlayer")
+	var slash_sprite : Sprite2D = sword_slash_var.get_node("Sprite2D")
+
+	sword_slash_var.global_position = global_position
+	anim_p.speed_scale = anim_p.get_animation("slash").length / slash_time
+	#slash_sprite.flip_h = last_dir > 0
+	get_parent().add_child(sword_slash_var)
 
 
 func attack_timers() -> void:

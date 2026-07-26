@@ -33,8 +33,8 @@ project/assembly_name="GMTK2026"
 [global_group]
 
 stopwatch=""
-enemies=""
 player=""
+enemies=""
 
 [input]
 
