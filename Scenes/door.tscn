@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d3ejmbknis4ic" path="res://door.gd" id="1_xqsd2"]
 [ext_resource type="Texture2D" uid="uid://bvut1qe7mijxw" path="res://Assets/door-spritesheet (1).png" id="2_lh3f8"]
+[ext_resource type="AudioStream" uid="uid://cfcurgiswdcs2" path="res://Assets/sounds/sfx/doorsfx.mp3" id="3_fahql"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jb6ol"]
 atlas = ExtResource("2_lh3f8")
@@ -140,3 +141,7 @@ shape = SubResource("RectangleShape2D_fp2xp")
 [node name="top" type="CollisionShape2D" parent="Hitbox" unique_id=532698984]
 position = Vector2(0, -31)
 shape = SubResource("RectangleShape2D_fp2xp")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=911386290]
+stream = ExtResource("3_fahql")
+volume_db = -7.87
