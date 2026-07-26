@@ -7,6 +7,7 @@ signal interact
 @onready var coyote_timer : Timer = $CoyoteTimer
 @onready var master_timer: MasterTimer = $"../MasterTimer"
 @onready var hit_box : Area2D = $Hitbox
+@onready var secondsminus: Label = $Label
 
 
 @export_group("Player")
@@ -225,8 +226,12 @@ func _on_jump_finished():
 func on_area_enterted(node : Area2D) -> void:
 	if node.owner.is_in_group("enemies"):
 		deal_damage(node)
-		dmg(5)
+		
 		apply_knockback(Vector2(0,-1), 50)
+		var floating = preload("res://Scenes/text_handler.tscn").instantiate()
+		get_tree().current_scene.add_child(floating)
+		dmg(5)
+		floating.show_text("-5s", position - Vector2(0, 65))
 
 func deal_damage(node : Area2D) -> void:
 	var tween = get_tree().create_tween()

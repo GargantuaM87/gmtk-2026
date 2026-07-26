@@ -23,7 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://vq7fxtvnbwvp" path="res://Scenes/Levels/lvl-02/04.tscn" id="19_k8qwd"]
 [ext_resource type="PackedScene" uid="uid://clgbeb5oeupl" path="res://Scenes/Levels/lvl-02/05.tscn" id="20_5hbxs"]
 [ext_resource type="PackedScene" uid="uid://bcyeu2xhbv8rw" path="res://Scenes/Levels/lvl-02/06.tscn" id="21_in1j6"]
-[ext_resource type="PackedScene" uid="uid://cboplqbq14xnk" path="res://Scenes/Levels/interludes/i2.tscn" id="23_ryyyi"]
 [ext_resource type="PackedScene" uid="uid://dvg4a2h5eq821" path="res://Scenes/introdoor.tscn" id="26_5hbxs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6d06y"]
@@ -67,7 +66,7 @@ metadata/_custom_type_script = "uid://d0u18ftdvtg3r"
 [sub_resource type="Resource" id="Resource_qsi4f"]
 script = ExtResource("11_jlsw1")
 title = "end"
-roomarray = Array[PackedScene]([ExtResource("23_ryyyi")])
+roomarray = Array[PackedScene]([null])
 metadata/_custom_type_script = "uid://d0u18ftdvtg3r"
 
 [sub_resource type="LabelSettings" id="LabelSettings_xvj32"]
