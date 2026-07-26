@@ -8,9 +8,22 @@ func _ready() -> void:
 	
 	pass # Replace with function body.
 var loaded: Array[Node2D] = []
+var loadednums: Array[int] = []
 
-func loadscene(target_exit: Vector2):
+func genint():
 	var rand = rng.randi_range(0, scenes.size()-1)
+	return rand
+	
+func loadscene(target_exit: Vector2):
+	var rand = 0
+	while true:
+		rand = genint()
+		if loadednums.size() > scenes.size():
+			print("flushedloadednums")
+			loadednums.clear()
+		if rand not in loadednums:
+			loadednums.append(rand)
+			break
 	var room = scenes[rand].instantiate()
 	loaded.append(room)
 	add_child(room)

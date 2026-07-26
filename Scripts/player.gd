@@ -6,16 +6,20 @@ signal interact
 @onready var attack_hitbox = $AttackArea/AttackHitBox
 @onready var coyote_timer : Timer = $CoyoteTimer
 @onready var master_timer: MasterTimer = $"../MasterTimer"
-
+@export_group("Player")
 @export var jump_buffer_timer : float = 0.1
 @export var coyote_time : float = 0.1
-@export var dash_time : float = 0.1
+@export_group("Atk")
 @export var hitbox_time : float = 0.2
 @export var attack_cooldown : float = 0.35
+@export var dash_time : float = 0.05
 @export var movement_lock_time := 0.20
-@export var dash_speed = 800
-@export var jump_attack_cooldown : float = 0.3
+@export_group("Jump Atk")
+@export var dash_speed = 200
+@export var jump_attack_cooldown : float = 0.5
+@export var jump_attack_movement_cooldown : float = 0.03
 @export var jump_attacks : float = 1
+@export_group("Misc")
 @export var wall_jump_horizontal_velocity_time_window : float = 0.0
 @onready var atksfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
@@ -167,6 +171,14 @@ func attack_timers() -> void:
 	get_tree().create_timer(hitbox_time).timeout.connect(on_hitbox_finished)
 	# Timer before player is allowed to move again
 	get_tree().create_timer(movement_lock_time).timeout.connect(_unlock_movement)
+	
+	
+func attack_jump_timers() -> void:
+	# So this is a timer for attacking
+	get_tree().create_timer(jump_attack_movement_cooldown).timeout.connect(_on_attack_finished)
+	# Timer for when the box collider will be disabled again
+	get_tree().create_timer(hitbox_time).timeout.connect(on_hitbox_finished)
+	get_tree().create_timer(movement_lock_time).timeout.connect(_unlock_movement)
 
 func _unlock_movement():
 	movement_locked = false
@@ -177,6 +189,7 @@ func _unlock_movement():
 	
 func _on_attack_finished():
 	attacking = false
+	movement_locked = false
 	can_attack = true
 
 func on_hitbox_finished():
