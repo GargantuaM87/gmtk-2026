@@ -3,6 +3,7 @@ extends Node2D
 @onready var top: CollisionShape2D = $Hitbox/top
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var light_occluder_2d: LightOccluder2D = $AnimatedSprite2D/LightOccluder2D
+@onready var sfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 signal openDoor
 # Called when the node enters the scene tree for the first time.
@@ -15,6 +16,7 @@ func open():
 	tween.tween_property(top, "position:y", 200, 0.25)
 	light_occluder_2d.hide()
 	anim.play("open")
+	sfx.play()
 	
 
 

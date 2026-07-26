@@ -12,10 +12,11 @@ extends CharacterBody2D
 @export var jump_attacks : float = 1
 signal interact
 @export var wall_jump_horizontal_velocity_time_window : float = 0.0
+@onready var atksfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 const WALL_JUMP_HORIZONTAL_VELOCITY_TIME_WINDOW = 0.2
 const SPEED = 300.0
-const JUMP_VELOCITY = -700.0
+const JUMP_VELOCITY = -500.0
 const GRAVITY = 1000
 const HORIZONTAL_VELOCITY = 350
 const WALL_JUMP_HORIZONTAL_VELOCITY = 300
@@ -108,6 +109,7 @@ func _physics_process(delta: float) -> void:
 	# Attack Animation on ground
 	if is_on_floor() and Input.is_action_just_pressed("mouse_left") and can_attack:
 		sprite.play("attack")
+		atksfx.playSFX("swing_miss")
 		velocity.x = 0
 		
 		attacking = true
@@ -117,6 +119,8 @@ func _physics_process(delta: float) -> void:
 	# Attack Animation in the air
 	if !is_on_floor() and Input.is_action_just_pressed("mouse_left") and jump_attacks > 0:
 		sprite.play("jump_attack")
+		atksfx.playSFX("air_miss")
+		
 		velocity.y = 0
 		attacking = true
 		can_attack = false
