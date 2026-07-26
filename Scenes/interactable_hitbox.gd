@@ -6,6 +6,7 @@ extends Node2D
 @onready var roomgen: Node2D = $"../RoomManager"
 @onready var room_timer: Label = $"../RoomTimer"
 @onready var introseq: Label = $"../introseq"
+@onready var door: Node2D = $"../Door"
 
 
 @export var text: TextEdit
@@ -30,5 +31,6 @@ func startGame():
 	roomgen.loadRooms()
 	room_timer.show()
 	introseq.hide()
+	door.open()
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	pass # Replace with function body.
