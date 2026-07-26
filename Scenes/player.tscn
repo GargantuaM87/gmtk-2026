@@ -675,4 +675,10 @@ frame_progress = 0.23152268
 [node name="CoyoteTimer" type="Timer" parent="." unique_id=2146660500]
 
 [connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]
+[node name="RightWall" type="RayCast2D" parent="." unique_id=1716820380]
+target_position = Vector2(30, 0)
+
+[node name="LeftWall" type="RayCast2D" parent="." unique_id=1144370778]
+target_position = Vector2(-30, 0)
+
 [connection signal="timeout" from="CoyoteTimer" to="." method="coyote_timeout"]
