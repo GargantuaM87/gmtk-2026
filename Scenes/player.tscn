@@ -457,11 +457,8 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_83xs0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_83xs0")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"jump_attack",
 "speed": 12.0
 }, {
@@ -573,7 +570,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_e6mvm")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"run_attack",
 "speed": 24.0
 }, {
@@ -668,9 +665,8 @@ disabled = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1166195807]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_afs4w")
-animation = &"running"
+animation = &"run_attack"
 autoplay = "default"
-frame_progress = 0.23152268
 
 [node name="CoyoteTimer" type="Timer" parent="." unique_id=2146660500]
 
