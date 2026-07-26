@@ -667,6 +667,8 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_afs4w")
 animation = &"jump_attack"
 autoplay = "default"
+frame = 9
+frame_progress = 1.0
 
 [node name="CoyoteTimer" type="Timer" parent="." unique_id=2146660500]
 
