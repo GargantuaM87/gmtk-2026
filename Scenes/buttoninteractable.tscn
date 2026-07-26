@@ -1,7 +1,12 @@
 [gd_scene format=3 uid="uid://dakf2yeo8iea6"]
 
+<<<<<<< HEAD:Scenes/buttoninteractable.tscn
 [ext_resource type="Script" uid="uid://q73fks1msu6k" path="res://Scenes/buttoninteractable.gd" id="1_rjfsr"]
 [ext_resource type="Script" uid="uid://ddsva8lwoepw" path="res://Scenes/area_2d.gd" id="1_tfqlr"]
+=======
+[ext_resource type="Script" uid="uid://q73fks1msu6k" path="res://Scripts/interactable_hitbox.gd" id="1_rjfsr"]
+[ext_resource type="Script" uid="uid://ddsva8lwoepw" path="res://Scripts/area_2d.gd" id="1_tfqlr"]
+>>>>>>> e7fa0368a890496e259789cbf87422822d027045:Scenes/interactable_hitbox.tscn
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olaw7"]
 size = Vector2(118, 96)

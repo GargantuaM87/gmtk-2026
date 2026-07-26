@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c18altsnmee12"
-path="res://.godot/imported/dash_attack_sheet.png-357cad2fde261ec3bd973db4b31ae075.ctex"
+uid="uid://dyuphw1ydm6sk"
+path="res://.godot/imported/skin_monster_jump_1-spritesheet.png-368b9e8c7ae9bda99407eaf6d6fa8981.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/dash_attack_sheet.png"
-dest_files=["res://.godot/imported/dash_attack_sheet.png-357cad2fde261ec3bd973db4b31ae075.ctex"]
+source_file="res://Assets/EnemySheets/skin_monster_jump_1-spritesheet.png"
+dest_files=["res://.godot/imported/skin_monster_jump_1-spritesheet.png-368b9e8c7ae9bda99407eaf6d6fa8981.ctex"]
 
 [params]
 

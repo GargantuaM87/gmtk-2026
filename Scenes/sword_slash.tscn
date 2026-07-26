@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b7bw50yrttbm4"]
 
 [ext_resource type="Script" uid="uid://b0a2kqumcyguk" path="res://Scripts/sword_slash.gd" id="1_wbnc5"]
-[ext_resource type="Texture2D" uid="uid://bekr4rq8asmtq" path="res://Assets/Slash(1).png" id="2_1mvnw"]
+[ext_resource type="Texture2D" uid="uid://bekr4rq8asmtq" path="res://Assets/PlayerSheets/Slash(1).png" id="2_1mvnw"]
 
 [sub_resource type="Animation" id="Animation_kt0jb"]
 length = 0.8
