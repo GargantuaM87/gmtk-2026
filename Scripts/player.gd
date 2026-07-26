@@ -222,7 +222,11 @@ func on_area_enterted(node : Area2D) -> void:
 		deal_damage(node)
 
 func deal_damage(node : Area2D) -> void:
-	pass
+	var tween = get_tree().create_tween()
+	tween.tween_method(set_shader_blink_intensity, 1.0, 0.0, 0.5)
+
+func set_shader_blink_intensity(new_value : float):
+	sprite.material.set_shader_parameter("blink_intensity", new_value)
 
 func dmg(val: float):
 	master_timer.damage(val)
