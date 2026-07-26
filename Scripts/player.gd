@@ -38,9 +38,6 @@ func on_wall() -> bool:
 	return $RightWall.is_colliding() or $LeftWall.is_colliding()
 
 
-func _ready() -> void:
-	pass
-
 func _physics_process(delta: float) -> void:
 	if not is_on_floor() and !attacking:
 		velocity.y += GRAVITY * delta
