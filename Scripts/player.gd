@@ -1,4 +1,7 @@
 extends CharacterBody2D
+
+signal interact
+
 @onready var sprite = $AnimatedSprite2D
 @onready var attack_hitbox = $AttackArea/AttackHitBox
 @onready var coyote_timer : Timer = $CoyoteTimer
@@ -9,8 +12,9 @@ extends CharacterBody2D
 @export var dash_time : float = 0.1
 @export var hitbox_time : float = 0.2
 @export var attack_cooldown : float = 0.3
+@export var dash_speed = 800
+@export var jump_attack_cooldown : float = 0.3
 @export var jump_attacks : float = 1
-signal interact
 @export var wall_jump_horizontal_velocity_time_window : float = 0.0
 
 const WALL_JUMP_HORIZONTAL_VELOCITY_TIME_WINDOW = 0.2
@@ -25,16 +29,23 @@ var can_attack = true
 var attacking = false 
 var play_jump = true # if jumping is available
 var jump_buffer : bool = false # jump buffering
-func _ready() -> void:
-	RenderingServer.set_default_clear_color(Color(0.0, 0.0, 0.0, 1.0))
-	pass
 var should_horizontal_speed
 var debug_flag_0 = false
+var last_dir = 0 # for saving the last value that direction was in, without storing 0
 
+
+func _ready() -> void:
+	RenderingServer.set_default_clear_color(Color(0.0, 0.0, 0.0, 1.0))
 
 func on_wall() -> bool:
 	return $RightWall.is_colliding() or $LeftWall.is_colliding()
 
+# Make sure to delegate non-physics processes to 
+func _process(delta: float) -> void:
+	if last_dir < 0:
+		attack_hitbox.scale = Vector2(-1, 1)
+	else:
+		attack_hitbox.scale = Vector2(1, 1)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor() and !attacking:
@@ -65,14 +76,17 @@ func _physics_process(delta: float) -> void:
 		# Switching player direction
 		if dir > 0:
 			sprite.flip_h = false
+			last_dir = 1
 		elif dir < 0:
 			sprite.flip_h = true
+			last_dir = -1
 	else:
 		if wall_jump_horizontal_velocity_time_window > 0.0:
 			wall_jump_horizontal_velocity_time_window -= delta
 			velocity.x = should_horizontal_speed
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+			if !attacking:
+				velocity.x = move_toward(velocity.x, 0, SPEED)
 		#Jump Action
 	if Input.is_action_just_pressed("space"):
 		if play_jump:
@@ -93,7 +107,16 @@ func _physics_process(delta: float) -> void:
 	#		jump()
 	#		jump_buffer = false
 		
-	# Movement Animation
+	handle_animations(dir)
+	print(last_dir)
+
+	move_and_slide()
+
+# go over and refactor this code later
+# All custom functions go below this comment
+
+func handle_animations(dir : float) -> void:
+		# Movement Animation
 	if is_on_floor() and !attacking:
 		# Necessary animations to play
 		if dir == 0:
@@ -108,7 +131,6 @@ func _physics_process(delta: float) -> void:
 	# Attack Animation on ground
 	if is_on_floor() and Input.is_action_just_pressed("mouse_left") and can_attack:
 		sprite.play("attack")
-		velocity.x = 0
 		
 		attacking = true
 		can_attack = false
@@ -118,15 +140,14 @@ func _physics_process(delta: float) -> void:
 	if !is_on_floor() and Input.is_action_just_pressed("mouse_left") and jump_attacks > 0:
 		sprite.play("jump_attack")
 		velocity.y = 0
+		velocity.x += last_dir * dash_speed
 		attacking = true
 		can_attack = false
 		jump_attacks = 0
 		attack_hitbox.disabled = false
-		if  not sprite.animation_finished.is_connected(attack_timers):
-			sprite.animation_finished.connect(attack_timers, CONNECT_ONE_SHOT)
-		# attack_timers()
+		if not sprite.animation_finished.is_connected(attack_jump_timers):
+			sprite.animation_finished.connect(attack_jump_timers, CONNECT_ONE_SHOT)
 
-	move_and_slide()
 
 func attack_timers() -> void:
 	# So this is a timer for attacking
@@ -134,7 +155,12 @@ func attack_timers() -> void:
 	# Timer for when the box collider will be disabled again
 	get_tree().create_timer(hitbox_time).timeout.connect(on_hitbox_finished)
 
-	
+func attack_jump_timers() -> void:
+	# So this is a timer for attacking
+	get_tree().create_timer(jump_attack_cooldown).timeout.connect(_on_attack_finished)
+	# Timer for when the box collider will be disabled again
+	get_tree().create_timer(hitbox_time).timeout.connect(on_hitbox_finished)
+
 func _on_attack_finished():
 	attacking = false
 	can_attack = true
