@@ -21,7 +21,7 @@ tile_map_data = PackedByteArray("AAAQAA8AAAAPAAAAAAAQABAAAAAPAAEAAAARAA8AAAAQAAA
 [node name="MasterTimer" parent="." unique_id=524583231 instance=ExtResource("4_cv17v")]
 
 [node name="SkinMonster" parent="." unique_id=660104151 instance=ExtResource("4_v8iqp")]
-position = Vector2(933, -5)
+position = Vector2(889, 470)
 
 [node name="Violetegon" parent="." unique_id=1008581491 instance=ExtResource("5_v8iqp")]
 position = Vector2(1811, 435)
