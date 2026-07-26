@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cple85fsif1dx"]
 
-[ext_resource type="Script" uid="uid://q73fks1msu6k" path="res://Scenes/interactable_hitbox.gd" id="1_jjvw5"]
+[ext_resource type="Script" uid="uid://q73fks1msu6k" path="res://Scenes/buttoninteractable.gd" id="1_jjvw5"]
 [ext_resource type="PackedScene" uid="uid://c8qyr1ibghc4m" path="res://Scenes/master_timer.tscn" id="1_p8xcm"]
 [ext_resource type="PackedScene" uid="uid://cr3l7x8g53tq4" path="res://Scenes/player.tscn" id="1_pp2fj"]
 [ext_resource type="FontFile" uid="uid://mtdu0bf066ol" path="res://Assets/PixelifySans-VariableFont_wght.ttf" id="2_gdoci"]
@@ -12,12 +12,13 @@
 [ext_resource type="Script" uid="uid://beos4pymc5cqm" path="res://Scenes/Levels/Levelreqs/levelManager.gd" id="10_y7udq"]
 [ext_resource type="PackedScene" uid="uid://dfvp0gt1v1nbb" path="res://Scenes/Levels/lvl-01/01.tscn" id="11_h2blv"]
 [ext_resource type="Script" uid="uid://d0u18ftdvtg3r" path="res://Scenes/Levels/Levelreqs/lvlbundle.gd" id="11_jlsw1"]
-[ext_resource type="PackedScene" uid="uid://dmklf7r45myap" path="res://Scenes/door.tscn" id="11_lqx03"]
+[ext_resource type="PackedScene" uid="uid://cyqyxht1maa04" path="res://Scenes/door.tscn" id="11_lqx03"]
 [ext_resource type="PackedScene" uid="uid://cgkgv4jq54hxq" path="res://Scenes/Levels/lvl-01/02.tscn" id="12_5qs7v"]
 [ext_resource type="PackedScene" uid="uid://dadmohu3fl2jc" path="res://Scenes/Levels/lvl-01/03.tscn" id="13_n10wv"]
 [ext_resource type="PackedScene" uid="uid://dxohjbhqvw5wi" path="res://Scenes/Levels/lvl-01/05.tscn" id="14_eb5ma"]
 [ext_resource type="PackedScene" uid="uid://503y07uwo7x0" path="res://Scenes/Levels/lvl-01/06.tscn" id="15_7sif0"]
 [ext_resource type="PackedScene" uid="uid://ca3vil4llh1bm" path="res://Scenes/Levels/lvl-02/01.tscn" id="16_4m11n"]
+[ext_resource type="PackedScene" uid="uid://ljh0idpam4fj" path="res://Scenes/Levels/interludes/i1.tscn" id="16_jlsw1"]
 [ext_resource type="PackedScene" uid="uid://cstn24vldqjtk" path="res://Scenes/Levels/lvl-02/02.tscn" id="17_jlsw1"]
 [ext_resource type="PackedScene" uid="uid://bplxrejbsic8n" path="res://Scenes/Levels/lvl-02/03.tscn" id="18_ryyyi"]
 [ext_resource type="PackedScene" uid="uid://vq7fxtvnbwvp" path="res://Scenes/Levels/lvl-02/04.tscn" id="19_k8qwd"]
@@ -45,6 +46,13 @@ fill_to = Vector2(-0.2, 0)
 script = ExtResource("11_jlsw1")
 rooms = 3
 roomarray = Array[PackedScene]([ExtResource("11_h2blv"), ExtResource("12_5qs7v"), ExtResource("13_n10wv"), ExtResource("14_eb5ma"), ExtResource("15_7sif0")])
+metadata/_custom_type_script = "uid://d0u18ftdvtg3r"
+
+[sub_resource type="Resource" id="Resource_wc463"]
+script = ExtResource("11_jlsw1")
+title = "i1"
+rooms = 1
+roomarray = Array[PackedScene]([ExtResource("16_jlsw1")])
 metadata/_custom_type_script = "uid://d0u18ftdvtg3r"
 
 [sub_resource type="Resource" id="Resource_8yvls"]
@@ -121,7 +129,7 @@ bus = &"BGM"
 [node name="RoomManager" type="Marker2D" parent="." unique_id=973738065]
 position = Vector2(352, 160)
 script = ExtResource("10_y7udq")
-scenes = Array[ExtResource("11_jlsw1")]([SubResource("Resource_lqx03"), SubResource("Resource_8yvls")])
+scenes = Array[ExtResource("11_jlsw1")]([SubResource("Resource_lqx03"), SubResource("Resource_wc463"), SubResource("Resource_8yvls")])
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1689887907]
 color = Color(0.26536041, 0.26536056, 0.26536044, 1)
@@ -154,8 +162,8 @@ vertical_alignment = 1
 script = ExtResource("10_lqx03")
 typing_speed = 0.01
 
-[node name="Door" parent="." unique_id=1266661932 instance=ExtResource("11_lqx03")]
-position = Vector2(320, 111)
+[node name="Door" parent="." unique_id=296141291 instance=ExtResource("11_lqx03")]
+position = Vector2(320, 112)
 
 [connection signal="area_entered" from="button/Area2D" to="button" method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="button/Area2D" to="button/Area2D" method="_on_body_entered"]

@@ -4,10 +4,17 @@ extends Node2D
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var light_occluder_2d: LightOccluder2D = $AnimatedSprite2D/LightOccluder2D
 @onready var sfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var enemybox: Area2D = $enemybox
 
 signal openDoor
+
+var isopenablebyfight = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if enemybox != null:
+		isopenablebyfight = false
+		
+		
 	openDoor.connect(open)
 
 func open():

@@ -2,10 +2,11 @@ extends Area2D
 @onready var label: Label = $"../Label"
 signal activated
 var bodies_in_hitbox: Array = []
-@onready var player: CharacterBody2D = $"../../Player"
-@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+var player = null
+@onready var collision_shape_2d: Area2D = $"."
 var started:bool = false
 func _ready() -> void:
+	player = get_tree().get_first_node_in_group("player")
 	label.hide()
 	player.interact.connect(_interact)
 	pass

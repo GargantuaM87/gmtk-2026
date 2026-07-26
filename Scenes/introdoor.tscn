@@ -1,0 +1,156 @@
+[gd_scene format=3 uid="uid://dvg4a2h5eq821"]
+
+[ext_resource type="Script" path="res://Scenes/newdoor.gd" id="1_fahql"]
+[ext_resource type="Texture2D" uid="uid://bvut1qe7mijxw" path="res://Assets/door-spritesheet (1).png" id="2_lh3f8"]
+[ext_resource type="AudioStream" uid="uid://cfcurgiswdcs2" path="res://Assets/sounds/sfx/doorsfx.mp3" id="3_fahql"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jb6ol"]
+atlas = ExtResource("2_lh3f8")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2y5go"]
+atlas = ExtResource("2_lh3f8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhu8j"]
+atlas = ExtResource("2_lh3f8")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w48wr"]
+atlas = ExtResource("2_lh3f8")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xydsw"]
+atlas = ExtResource("2_lh3f8")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7rlv"]
+atlas = ExtResource("2_lh3f8")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_da42f"]
+atlas = ExtResource("2_lh3f8")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1mgw4"]
+atlas = ExtResource("2_lh3f8")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2uiy3"]
+atlas = ExtResource("2_lh3f8")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kosln"]
+atlas = ExtResource("2_lh3f8")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmhro"]
+atlas = ExtResource("2_lh3f8")
+region = Rect2(768, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4a4qo"]
+atlas = ExtResource("2_lh3f8")
+region = Rect2(832, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btkuo"]
+atlas = ExtResource("2_lh3f8")
+region = Rect2(896, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fp2xp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jb6ol")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2y5go")
+}],
+"loop": 1,
+"name": &"locked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhu8j")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_w48wr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xydsw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7rlv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_da42f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1mgw4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2uiy3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kosln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmhro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4a4qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btkuo")
+}],
+"loop": 0,
+"name": &"open",
+"speed": 23.0
+}]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_olaw7"]
+polygon = PackedVector2Array(-16, -32, 16, -32, 16, 32, -16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fp2xp"]
+size = Vector2(63.5, 66)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ooald"]
+polygon = PackedVector2Array(-124.31683, -31.661896, -60.316833, -31.661896, -60.316833, 96.338104, -124.31683, 96.338104)
+
+[node name="Door" type="Node2D" unique_id=1266661932]
+script = ExtResource("1_fahql")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=99147496]
+light_mask = 1023
+z_index = -2
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_fp2xp")
+animation = &"open"
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="AnimatedSprite2D" unique_id=351642531]
+occluder = SubResource("OccluderPolygon2D_olaw7")
+
+[node name="Hitbox" type="StaticBody2D" parent="." unique_id=555135876]
+
+[node name="bottom" type="CollisionShape2D" parent="Hitbox" unique_id=540773715]
+position = Vector2(0, 31)
+shape = SubResource("RectangleShape2D_fp2xp")
+
+[node name="top" type="CollisionShape2D" parent="Hitbox" unique_id=532698984]
+position = Vector2(0, -31)
+shape = SubResource("RectangleShape2D_fp2xp")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=911386290]
+stream = ExtResource("3_fahql")
+volume_db = -7.87
+bus = &"SFX"
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1952311354]
+position = Vector2(92.31683, -32.338104)
+occluder = SubResource("OccluderPolygon2D_ooald")
+occluder_light_mask = 1023
