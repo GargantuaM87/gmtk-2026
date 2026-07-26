@@ -460,7 +460,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"jump_attack",
-"speed": 12.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -665,7 +665,7 @@ disabled = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1166195807]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_afs4w")
-animation = &"run_attack"
+animation = &"jump_attack"
 autoplay = "default"
 
 [node name="CoyoteTimer" type="Timer" parent="." unique_id=2146660500]
