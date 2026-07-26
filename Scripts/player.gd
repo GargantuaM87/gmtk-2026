@@ -133,7 +133,7 @@ func handle_animations(dir : float) -> void:
 	if is_on_floor() and Input.is_action_just_pressed("mouse_left") and can_attack:
 		sprite.play("attack")
 		atksfx.playSFX("swing_miss")
-		
+		velocity.x = 0
 		attacking = true
 		can_attack = false
 		attack_hitbox.disabled = false
