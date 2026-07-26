@@ -27,13 +27,16 @@ var can_attack = true
 var attacking = false 
 var play_jump = true # if jumping is available
 var jump_buffer : bool = false # jump buffering
-func _ready() -> void:
-	pass
 var should_horizontal_speed
 var debug_flag_0 = false
+
+
 func on_wall() -> bool:
 	return $RightWall.is_colliding() or $LeftWall.is_colliding()
 
+
+func _ready() -> void:
+	pass
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor() and !attacking:
@@ -60,8 +63,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = should_horizontal_speed
 		else:
 			velocity.x = dir * SPEED
-			if not is_on_floor():
-				velocity.x * 0.8
+		# Switching player direction
 		if dir > 0:
 			sprite.flip_h = false
 		else:
@@ -115,14 +117,15 @@ func _physics_process(delta: float) -> void:
 		attack_timers()
 	# Attack Animation in the air
 	if !is_on_floor() and Input.is_action_just_pressed("mouse_left") and jump_attacks > 0:
-		
 		sprite.play("jump_attack")
 		velocity.y = 0
 		attacking = true
 		can_attack = false
 		jump_attacks = 0
 		attack_hitbox.disabled = false
-		attack_timers()
+		if  not sprite.animation_finished.is_connected(attack_timers):
+			sprite.animation_finished.connect(attack_timers, CONNECT_ONE_SHOT)
+		# attack_timers()
 
 	move_and_slide()
 
