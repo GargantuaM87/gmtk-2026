@@ -699,6 +699,10 @@ random_volume_offset_db = 0.23
 streams_count = 1
 stream_0/stream = ExtResource("14_h4iuc")
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_exf34"]
+radius = 12.0
+height = 44.0
+
 [node name="Player" type="CharacterBody2D" unique_id=201653633 groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_6t5aa")
@@ -737,6 +741,7 @@ shape = SubResource("RectangleShape2D_exf34")
 disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1166195807]
+modulate = Color(1, 0.26666668, 0.11372549, 1)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_afs4w")
 animation = &"jumping"
@@ -756,6 +761,14 @@ bus = &"SFX"
 script = ExtResource("11_gymyn")
 audio_streams = Array[AudioStream]([ExtResource("12_h4iuc"), SubResource("AudioStreamRandomizer_htbq2"), SubResource("AudioStreamRandomizer_h4iuc"), ExtResource("15_igrcy")])
 indexes = Array[String](["swing_miss", "swing_hit_flesh", "air_miss", "air_hit_flesh"])
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1024232822]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1333331523]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_exf34")
 
 [connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]
 [connection signal="timeout" from="CoyoteTimer" to="." method="coyote_timeout"]
