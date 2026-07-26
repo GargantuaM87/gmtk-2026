@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b5km8n312ijbo" path="res://Scenes/Levels/Levelreqs/physics_tile.tscn" id="1_gqlhf"]
 [ext_resource type="PackedScene" uid="uid://dig6a263l41co" path="res://Scenes/Levels/Levelreqs/kill_box.tscn" id="2_wbg6g"]
 [ext_resource type="PackedScene" uid="uid://7hqfb8ija00e" path="res://Scenes/Enemies/skin_monster.tscn" id="3_wbg6g"]
+[ext_resource type="PackedScene" uid="uid://dx4n6jjlyr1h6" path="res://Scenes/Enemies/violetegon.tscn" id="4_5aydx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpgsr"]
 size = Vector2(2912, 170)
@@ -32,3 +33,6 @@ position = Vector2(744, -96)
 
 [node name="SkinMonster2" parent="." unique_id=1758586740 instance=ExtResource("3_wbg6g")]
 position = Vector2(2176, -24)
+
+[node name="Violetegon" parent="." unique_id=1008581491 instance=ExtResource("4_5aydx")]
+position = Vector2(1544, -184)
