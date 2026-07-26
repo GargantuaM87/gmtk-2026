@@ -583,7 +583,6 @@ script = ExtResource("1_6t5aa")
 shape = SubResource("CapsuleShape2D_0omw4")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=368770509]
-zoom = Vector2(3.5, 3.5)
 drag_horizontal_enabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=345698072]
@@ -615,9 +614,15 @@ disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1166195807]
 sprite_frames = SubResource("SpriteFrames_afs4w")
-animation = &"jumping"
+animation = &"running"
 autoplay = "default"
 
 [node name="CoyoteTimer" type="Timer" parent="." unique_id=2146660500]
+
+[node name="RightWall" type="RayCast2D" parent="." unique_id=1716820380]
+target_position = Vector2(30, 0)
+
+[node name="LeftWall" type="RayCast2D" parent="." unique_id=1144370778]
+target_position = Vector2(-30, 0)
 
 [connection signal="timeout" from="CoyoteTimer" to="." method="coyote_timeout"]
