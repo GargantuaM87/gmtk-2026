@@ -23,7 +23,7 @@ func _ready() -> void:
         await get_tree().physics_frame
         _poll_enemies()
     else:
-        pass
+        label.text = "open"
 
 func _physics_process(delta: float) -> void:
     if enemybox and not was_cleared:

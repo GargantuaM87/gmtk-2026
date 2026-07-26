@@ -45,7 +45,7 @@ tile_map_data = PackedByteArray("AAAMAAYAAAACAAEABAAMAAUAAAAHAAIAAAAMAAQAAAAHAAI
 
 [node name="Door4" parent="." unique_id=1266661932 instance=ExtResource("2_wc463")]
 position = Vector2(32, -56)
-cost = 5
+cost = 0
 
 [node name="Door3" parent="." unique_id=699451957 instance=ExtResource("2_wc463")]
 position = Vector2(768, -48)

@@ -51,6 +51,8 @@ var knockback_velocity: Vector2 = Vector2.ZERO
 var knockback_tween: Tween
 
 
+var is_hitting : bool = false
+
 func _ready() -> void:
 	RenderingServer.set_default_clear_color(Color(0.0, 0.0, 0.0, 1.0))
 	hit_box.area_entered.connect(on_area_enterted)
@@ -282,3 +284,7 @@ func kill() -> void: #Killbox to activate timer effect.
 	
 func death(): #When the player actually dies
 	print('hi')
+
+func sfx(name):
+	atksfx.playsfx(name)
+	
