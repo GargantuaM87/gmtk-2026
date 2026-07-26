@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dybknj5dy6xn5"
+path="res://.godot/imported/boss theme.mp3-d2a4808c1e197e749e655c1ec06e746e.mp3str"
+
+[deps]
+
+source_file="res://Scenes/Levels/boss theme.mp3"
+dest_files=["res://.godot/imported/boss theme.mp3-d2a4808c1e197e749e655c1ec06e746e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

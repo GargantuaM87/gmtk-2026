@@ -119,9 +119,6 @@ polygon = PackedVector2Array(-16, -32, 16, -32, 16, 32, -16, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fp2xp"]
 size = Vector2(63.5, 66)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ooald"]
-polygon = PackedVector2Array(-123.31683, -30.661896, -60.316833, -31.661896, -60.316833, 96.338104, -123.31683, 96.338104)
-
 [node name="Door" type="Node2D" unique_id=1266661932]
 script = ExtResource("1_pmgsm")
 
@@ -149,8 +146,3 @@ shape = SubResource("RectangleShape2D_fp2xp")
 stream = ExtResource("3_fahql")
 volume_db = -7.87
 bus = &"SFX"
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1952311354]
-position = Vector2(92.31683, -32.338104)
-occluder = SubResource("OccluderPolygon2D_ooald")
-occluder_light_mask = 1023
