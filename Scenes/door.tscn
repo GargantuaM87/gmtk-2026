@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d3ejmbknis4ic" path="res://door.gd" id="1_xqsd2"]
 [ext_resource type="Texture2D" uid="uid://bvut1qe7mijxw" path="res://Assets/door-spritesheet (1).png" id="2_lh3f8"]
 [ext_resource type="AudioStream" uid="uid://cfcurgiswdcs2" path="res://Assets/sounds/sfx/doorsfx.mp3" id="3_fahql"]
+[ext_resource type="FontFile" uid="uid://mtdu0bf066ol" path="res://Assets/PixelifySans-VariableFont_wght.ttf" id="4_ab4ky"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jb6ol"]
 atlas = ExtResource("2_lh3f8")
@@ -146,3 +147,12 @@ shape = SubResource("RectangleShape2D_fp2xp")
 stream = ExtResource("3_fahql")
 volume_db = -7.87
 bus = &"SFX"
+
+[node name="Label" type="Label" parent="." unique_id=663173589]
+offset_left = -65.0
+offset_top = -3.0
+offset_right = -36.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("4_ab4ky")
+text = "20s
+"

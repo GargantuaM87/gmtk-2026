@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkrawxlecvpvq"
-path="res://.godot/imported/enemy2_sheet.png-b27fd2d7e6924cf1eac945162f8c3be4.ctex"
+uid="uid://bfelybpyk1gdu"
+path="res://.godot/imported/fly_shoot_2-spritesheet.png-5d37cdf0cc6d58628a34b815d8f71ada.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/EnemySheets/enemy2_sheet.png"
-dest_files=["res://.godot/imported/enemy2_sheet.png-b27fd2d7e6924cf1eac945162f8c3be4.ctex"]
+source_file="res://Assets/EnemySheets/fly_shoot_2-spritesheet.png"
+dest_files=["res://.godot/imported/fly_shoot_2-spritesheet.png-5d37cdf0cc6d58628a34b815d8f71ada.ctex"]
 
 [params]
 

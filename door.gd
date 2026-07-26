@@ -18,14 +18,15 @@ var enemybox = get_node_or_null("$enemybox")
 var bodies_inside: Array[Node] = []
 var openable: bool = true
 func _ready() -> void:
-    if enemybox:
-        enemybox.body_entered.connect(_on_body_entered)
-        enemybox.body_exited.connect(_on_body_exited)
-        anim.play("locked")
-        label.text = "$" + str(cost) + "s"
-        openable = false
-    else:
-        pass
+	label = $Label
+	if enemybox:
+		enemybox.body_entered.connect(_on_body_entered)
+		enemybox.body_exited.connect(_on_body_exited)
+		anim.play("locked")
+		label.text = "$" + str(cost) + "s"
+		openable = false
+	else:
+		pass
 
 func _on_body_entered(body: Node) -> void:
     if body.is_in_group("enemies"):
