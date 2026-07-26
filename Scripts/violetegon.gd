@@ -4,7 +4,8 @@ extends CharacterBody2D
 @onready var detect_area : Area2D = $DetectArea
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var raycast: RayCast2D = $RayCast2D
-@onready var attack_box : Area2D = $Area2D
+@onready var attack_box : CollisionShape2D = $Area2D/AttackHitbox
+@onready var attack_box_area : Area2D = $Area2D
 
 @export var speed := 200.0
 @export var orbit_speed := 3.0
@@ -115,7 +116,10 @@ func can_see_player() -> bool:
 
 func attack() -> void:
 	sprite.play("attack")
-	velocity = Vector2.ZERO
+	if player.position.x > position.x:
+		attack_box_area.scale = Vector2(-1, 1)
+	else:
+		attack_box_area.scale = Vector2(1, 1)
 	attack_box.disabled = false
 	get_tree().create_timer(hitbox_time).timeout.connect(on_hitbox_finished)
 
